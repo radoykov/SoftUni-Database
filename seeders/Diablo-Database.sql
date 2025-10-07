@@ -1,4 +1,4 @@
---drop table if existss Characters, Games, GameTypeForbiddenItems, GameTypes, Items, ItemTypes, statistics, UserGameItems, Users, UsersGames cascade;
+--drop table if exists Characters, Games, GameTypeForbiddenItems, GameTypes, Items, ItemTypes, statistics, UserGameItems, Users, UsersGames cascade;
 
 create table if not exists Characters(
 	id int GENERATED ALWAYS AS IDENTITY (START WITH 1 INCREMENT BY 1) NOT NULL,
@@ -120,249 +120,247 @@ INSERT INTO Characters (id, "name", statistic_id) OVERRIDING SYSTEM VALUE VALUES
 (11, 'Paladin', 12),
 (12, 'Sorceress', 13);
 
-INSERT INTO Games (id, "name", Start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE 
-VALUES 
-(1,'Aithusa', CAST('2024-01-01 01:00:00' AS TIMESTAMP(3)), 4, 2, 0),
-(2, 'Acid green', CAST('2024-01-01 02:00:00' AS TIMESTAMP(3)), 7, 5, 0),
-(3, 'Apple', CAST('2024-01-01 03:00:00' AS TIMESTAMP(3)), 6, 3, 1),
-(4, 'Broadway', CAST('2024-01-01 04:00:00' AS TIMESTAMP(3)), 5, 5, 0),
-(5, 'Ancalagon', CAST('2024-01-01 05:00:00' AS TIMESTAMP(3)), 5, 5, 0),
-(6, 'Allium drumstick', CAST('2024-01-01 06:00:00' AS TIMESTAMP(3)), NULL, 2, 0),
-(7, 'Lisbon', CAST('2024-01-01 07:00:00' AS TIMESTAMP(3)), 6, 1, 1),
-(8, 'Ablajeck', CAST('2024-01-01 08:00:00' AS TIMESTAMP(3)), 5, 2, 1),
-(9, 'Acaeria', CAST('2024-01-01 09:00:00' AS TIMESTAMP(3)), 8, 5, 1),
-(10, 'Amsterdam', CAST('2024-01-01 10:00:00' AS TIMESTAMP(3)), 2, 3, 1),
-(11, 'Helo Prime', CAST('2024-01-01 11:00:00' AS TIMESTAMP(3)), 5, 2, 0),
-(12, 'Shruikan', CAST('2024-01-01 12:00:00' AS TIMESTAMP(3)), 4, 3, 0),
-(13, 'California pepperberry', CAST('2024-01-01 13:00:00' AS TIMESTAMP(3)), NULL, 3, 1),
-(14, 'Calla lily white', CAST('2024-01-01 14:00:00' AS TIMESTAMP(3)), 9, 3, 1),
-(15, 'Dahlia', CAST('2024-01-01 15:00:00' AS TIMESTAMP(3)), 7, 1, 1),
-(16, 'Delphinium Belladonna', CAST('2024-01-01 16:00:00' AS TIMESTAMP(3)), 5, 1, 0),
-(17, 'Delphinium Pacific Giant', CAST('2024-01-01 17:00:00' AS TIMESTAMP(3)), 3, 4, 0),
-(18, 'Daffodil', CAST('2024-01-01 18:00:00' AS TIMESTAMP(3)), 2, 5, 1),
-(19, 'Eric John', CAST('2024-01-01 19:00:00' AS TIMESTAMP(3)), NULL, 4, 0),
-(20, 'Eucalyptus silver dollar', CAST('2024-01-01 20:00:00' AS TIMESTAMP(3)), 7, 3, 1),
-(21, 'Eucalyptus seeded', CAST('2024-01-01 21:00:00' AS TIMESTAMP(3)), 7, 2, 1),
-(22, 'Fernleaf Yarrow', CAST('2024-01-01 22:00:00' AS TIMESTAMP(3)), 4, 1, 0),
-(23, 'Foxtail fern', CAST('2024-01-01 23:00:00' AS TIMESTAMP(3)), 9, 2, 0),
-(24, 'Freesia', CAST('2024-01-02 00:00:00' AS TIMESTAMP(3)), NULL, 5, 0),
-(25, 'Feverfew', CAST('2024-01-02 01:00:00' AS TIMESTAMP(3)), 6, 3, 0),
-(26, 'Flax New Zealand', CAST('2024-01-02 02:00:00' AS TIMESTAMP(3)), 7, 5, 1),
-(27, 'Godetia', CAST('2024-01-02 03:00:00' AS TIMESTAMP(3)), 7, 4, 1),
-(28, 'Gardenia', CAST('2024-01-02 04:00:00' AS TIMESTAMP(3)), 8, 3, 1),
-(29, 'Gerbera daisy', CAST('2024-01-02 05:00:00' AS TIMESTAMP(3)), 4, 2, 0),
-(30, 'Gerbera Ruby Red', CAST('2024-01-02 06:00:00' AS TIMESTAMP(3)), 2, 2, 0),
-(31, 'Gayfeather', CAST('2024-01-02 07:00:00' AS TIMESTAMP(3)), 2, 5, 1),
-(32, 'Goldenrod', CAST('2024-01-02 08:00:00' AS TIMESTAMP(3)), NULL, 4, 0),
-(33, 'Heather', CAST('2024-01-02 09:00:00' AS TIMESTAMP(3)), 6, 2, 0),
-(34, 'Hydrangea', CAST('2024-01-02 10:00:00' AS TIMESTAMP(3)), 3, 1, 1),
-(35, 'Ivy', CAST('2024-01-02 11:00:00' AS TIMESTAMP(3)), 5, 5, 0),
-(36, 'Japhette orchid', CAST('2024-01-02 12:00:00' AS TIMESTAMP(3)), 1, 1, 0),
-(37, 'Kangaroo paw yellow', CAST('2024-01-02 13:00:00' AS TIMESTAMP(3)), 3, 5, 0),
-(38, 'Lace fern', CAST('2024-01-02 14:00:00' AS TIMESTAMP(3)), 7, 4, 0),
-(39, 'Lily of the Nile – Alba', CAST('2024-01-02 15:00:00' AS TIMESTAMP(3)), 9, 4, 0),
-(40, 'Lumex', CAST('2024-01-02 16:00:00' AS TIMESTAMP(3)), 2, 5, 0),
-(41, 'Larkspur pink', CAST('2024-01-02 17:00:00' AS TIMESTAMP(3)), 2, 3, 0),
-(42, 'Lily of the valley', CAST('2024-01-02 18:00:00' AS TIMESTAMP(3)), 7, 4, 1),
-(43, 'Lisianthus misty blue', CAST('2024-01-02 19:00:00' AS TIMESTAMP(3)), NULL, 2, 0),
-(44, 'Lily Elite', CAST('2024-01-02 20:00:00' AS TIMESTAMP(3)), 4, 4, 0),
-(45, 'Lavender', CAST('2024-01-02 21:00:00' AS TIMESTAMP(3)), 2, 1, 0),
-(46, 'Lily Monte Negro', CAST('2024-01-02 22:00:00' AS TIMESTAMP(3)), 1, 1, 1),
-(47, 'Lily Casa Blanca', CAST('2024-01-02 23:00:00' AS TIMESTAMP(3)), NULL, 4, 0),
-(48, 'Lily Stargazer', CAST('2024-01-03 00:00:00' AS TIMESTAMP(3)), 8, 3, 1),
-(49, 'Love in a mist', CAST('2024-01-03 01:00:00' AS TIMESTAMP(3)), 5, 2, 1),
-(50, 'Mimosa', CAST('2024-01-03 02:00:00' AS TIMESTAMP(3)), 4, 2, 1),
-(51, 'Ming fern', CAST('2024-01-03 03:00:00' AS TIMESTAMP(3)), 1, 3, 0),
-(52, 'Monkshood', CAST('2024-01-03 04:00:00' AS TIMESTAMP(3)), 2, 1, 0),
-(53, 'Monte Cassino', CAST('2024-01-03 05:00:00' AS TIMESTAMP(3)), NULL, 5, 1),
-(54, 'Marguerite daisy', CAST('2024-01-03 06:00:00' AS TIMESTAMP(3)), 5, 5, 0),
-(55, 'Montbretia', CAST('2024-01-03 07:00:00' AS TIMESTAMP(3)), 2, 1, 0),
-(56, 'Misty blue Limonium', CAST('2024-01-03 08:00:00' AS TIMESTAMP(3)), 2, 1, 1),
-(57, 'Melaleuca', CAST('2024-01-03 09:00:00' AS TIMESTAMP(3)), 2, 5, 0),
-(58, 'Moon orchid', CAST('2024-01-03 10:00:00' AS TIMESTAMP(3)), NULL, 1, 1),
-(59, 'Nerine', CAST('2024-01-03 11:00:00' AS TIMESTAMP(3)), 7, 4, 1),
-(60, 'Peruvian lily', CAST('2024-01-03 12:00:00' AS TIMESTAMP(3)), 3, 1, 0),
-(61, 'Paper Reed', CAST('2024-01-03 13:00:00' AS TIMESTAMP(3)), 5, 5, 0),
-(62, 'Papyrus lions head', CAST('2024-01-03 14:00:00' AS TIMESTAMP(3)), 7, 3, 0),
-(63, 'Pincushion', CAST('2024-01-03 15:00:00' AS TIMESTAMP(3)), 6, 4, 1),
-(64, 'Phlox', CAST('2024-01-03 16:00:00' AS TIMESTAMP(3)), 4, 3, 0),
-(65, 'Pitt Variegated', CAST('2024-01-03 17:00:00' AS TIMESTAMP(3)), 5, 5, 0),
-(66, 'Peony', CAST('2024-01-03 18:00:00' AS TIMESTAMP(3)), NULL, 5, 0),
-(67, 'Pink Mink', CAST('2024-01-03 19:00:00' AS TIMESTAMP(3)), 7, 5, 0),
-(68, 'Pincushion flower annual', CAST('2024-01-03 20:00:00' AS TIMESTAMP(3)), 5, 4, 1),
-(69, 'Rose Champagne', CAST('2024-01-03 21:00:00' AS TIMESTAMP(3)), 6, 5, 1),
-(70, 'Red Rover', CAST('2024-01-03 22:00:00' AS TIMESTAMP(3)), 1, 1, 0),
-(71, 'Rose Fire & Ice', CAST('2024-01-03 23:00:00' AS TIMESTAMP(3)), 9, 3, 0),
-(72, 'Rice flower', CAST('2024-01-04 00:00:00' AS TIMESTAMP(3)), 7, 2, 0),
-(73, 'Ranunculus', CAST('2024-01-04 01:00:00' AS TIMESTAMP(3)), 2, 2, 1),
-(74, 'Rose Osiana', CAST('2024-01-04 02:00:00' AS TIMESTAMP(3)), NULL, 4, 1),
-(75, 'Rose Bridal White', CAST('2024-01-04 03:00:00' AS TIMESTAMP(3)), 1, 3, 0),
-(76, 'Rose Royalty', CAST('2024-01-04 04:00:00' AS TIMESTAMP(3)), 9, 4, 0),
-(77, 'Rose Emblem', CAST('2024-01-04 05:00:00' AS TIMESTAMP(3)), 2, 3, 0),
-(78, 'Rose Fantasy', CAST('2024-01-04 06:00:00' AS TIMESTAMP(3)), NULL, 1, 0),
-(79, 'Rose Lavanda', CAST('2024-01-04 07:00:00' AS TIMESTAMP(3)), 1, 4, 0),
-(80, 'Rose Kardinal', CAST('2024-01-04 08:00:00' AS TIMESTAMP(3)), NULL, 4, 0),
-(81, 'Rose Diadem', CAST('2024-01-04 09:00:00' AS TIMESTAMP(3)), 5, 5, 1),
-(82, 'Rose Lady Liberty', CAST('2024-01-04 10:00:00' AS TIMESTAMP(3)), 2, 5, 0),
-(83, 'Rose Bridal Pink', CAST('2024-01-04 11:00:00' AS TIMESTAMP(3)), 2, 1, 1),
-(84, 'Summer poinsettia', CAST('2024-01-04 12:00:00' AS TIMESTAMP(3)), 4, 2, 0),
-(85, 'Sprengeri fern', CAST('2024-01-04 13:00:00' AS TIMESTAMP(3)), 4, 5, 0),
-(86, 'Strawberry banksia', CAST('2024-01-04 14:00:00' AS TIMESTAMP(3)), 3, 3, 1),
-(87, 'Safflower', CAST('2024-01-04 15:00:00' AS TIMESTAMP(3)), NULL, 4, 1),
-(88, 'Spider Fuji Yellow', CAST('2024-01-04 16:00:00' AS TIMESTAMP(3)), 2, 3, 0),
-(89, 'Salmon Reagan', CAST('2024-01-04 17:00:00' AS TIMESTAMP(3)), 3, 1, 0),
-(90, 'Sweet William', CAST('2024-01-04 18:00:00' AS TIMESTAMP(3)), 2, 1, 1),
-(91, 'Sunflower Sunbright', CAST('2024-01-04 19:00:00' AS TIMESTAMP(3)), NULL, 3, 0),
-(92, 'Strawflower', CAST('2024-01-04 20:00:00' AS TIMESTAMP(3)), 9, 5, 0),
-(93, 'Safari Sunset', CAST('2024-01-04 21:00:00' AS TIMESTAMP(3)), 4, 5, 1),
-(94, 'Sweet pea', CAST('2024-01-04 22:00:00' AS TIMESTAMP(3)), 2, 4, 0),
-(95, 'Statice blue', CAST('2024-01-04 23:00:00' AS TIMESTAMP(3)), 7, 3, 0),
-(96, 'Stock lavender', CAST('2024-01-05 00:00:00' AS TIMESTAMP(3)), 1, 4, 1),
-(97, 'Sword fern', CAST('2024-01-05 01:00:00' AS TIMESTAMP(3)), 5, 4, 0),
-(98, 'Star of Bethlehem', CAST('2024-01-05 02:00:00' AS TIMESTAMP(3)), 8, 2, 0),
-(99, 'Sage perennial', CAST('2024-01-05 03:00:00' AS TIMESTAMP(3)), NULL, 4, 1),
-(100, 'Saponaria', CAST('2024-01-05 04:00:00' AS TIMESTAMP(3)), 7, 4, 0),
-(101, 'Snapdragon apple blossom', CAST('2024-01-05 05:00:00' AS TIMESTAMP(3)), 4, 2, 1),
-(102, 'Saxicola', CAST('2024-01-05 06:00:00' AS TIMESTAMP(3)), 8, 2, 1),
-(103, 'Snapdragon magenta', CAST('2024-01-05 07:00:00' AS TIMESTAMP(3)), 3, 3, 0),
-(104, 'Solidaster', CAST('2024-01-05 08:00:00' AS TIMESTAMP(3)), 2, 4, 1),
-(105, 'speedwell', CAST('2024-01-05 09:00:00' AS TIMESTAMP(3)), NULL, 1, 0),
-(106, 'Stephanotis', CAST('2024-01-05 10:00:00' AS TIMESTAMP(3)), 3, 3, 0),
-(107, 'Thorow-wax', CAST('2024-01-05 11:00:00' AS TIMESTAMP(3)), 3, 2, 1),
-(108, 'Telstar', CAST('2024-01-05 12:00:00' AS TIMESTAMP(3)), 7, 1, 1),
-(109, 'Tuberose', CAST('2024-01-05 13:00:00' AS TIMESTAMP(3)), NULL, 4, 0),
-(110, 'Tracelium', CAST('2024-01-05 14:00:00' AS TIMESTAMP(3)), 3, 4, 0),
-(111, 'Tulip pink', CAST('2024-01-05 15:00:00' AS TIMESTAMP(3)), 3, 5, 1),
-(112, 'Waxflower', CAST('2024-01-05 16:00:00' AS TIMESTAMP(3)), 6, 2, 0),
-(113, 'Willow curly', CAST('2024-01-05 17:00:00' AS TIMESTAMP(3)), 3, 4, 1),
-(114, 'Watsonia', CAST('2024-01-05 18:00:00' AS TIMESTAMP(3)), 3, 3, 0),
-(115, 'Ablajeck', CAST('2024-01-05 19:00:00' AS TIMESTAMP(3)), 9, 1, 1),
-(116, 'Abregado Rae', CAST('2024-01-05 20:00:00' AS TIMESTAMP(3)), 8, 2, 1),
-(117, 'Abrion', CAST('2024-01-05 21:00:00' AS TIMESTAMP(3)), 3, 3, 1),
-(118, 'Alderaan', CAST('2024-01-05 22:00:00' AS TIMESTAMP(3)), 4, 1, 1),
-(119, 'Allied Tion', CAST('2024-01-05 23:00:00' AS TIMESTAMP(3)), 1, 4, 1),
-(120, 'Altyr', CAST('2024-01-06 00:00:00' AS TIMESTAMP(3)), 5, 2, 0),
-(121, 'Andat', CAST('2024-01-06 01:00:00' AS TIMESTAMP(3)), NULL, 3, 0),
-(122, 'Six Flags', CAST('2024-01-06 02:00:00' AS TIMESTAMP(3)), 2, 4, 1),
-(123, 'SeaWorld', CAST('2024-01-06 03:00:00' AS TIMESTAMP(3)), 8, 3, 1),
-(124, 'Yosemite', CAST('2024-01-06 04:00:00' AS TIMESTAMP(3)), 7, 2, 0),
-(125, 'Stonehenge', CAST('2024-01-06 05:00:00' AS TIMESTAMP(3)), 7, 3, 1),
-(126, 'Machu Picchu', CAST('2024-01-06 06:00:00' AS TIMESTAMP(3)), 5, 4, 0),
-(127, 'Central Park', CAST('2024-01-06 07:00:00' AS TIMESTAMP(3)), 4, 2, 0),
-(128, 'Forbidden City', CAST('2024-01-06 08:00:00' AS TIMESTAMP(3)), 5, 4, 1),
-(129, 'Broadway', CAST('2024-01-06 09:00:00' AS TIMESTAMP(3)), 5, 1, 0),
-(130, 'Brooklyn Bridge', CAST('2024-01-06 10:00:00' AS TIMESTAMP(3)), 7, 1, 0),
-(131, 'Golden Gate', CAST('2024-01-06 11:00:00' AS TIMESTAMP(3)), 5, 5, 0),
-(132, 'Pike Place', CAST('2024-01-06 12:00:00' AS TIMESTAMP(3)), 8, 3, 0),
-(133, 'South Seaport', CAST('2024-01-06 13:00:00' AS TIMESTAMP(3)), 3, 2, 0),
-(134, 'Navy Pier', CAST('2024-01-06 14:00:00' AS TIMESTAMP(3)), 9, 3, 0),
-(135, 'Pier 39', CAST('2024-01-06 15:00:00' AS TIMESTAMP(3)), 8, 3, 0),
-(136, 'Fulvous', CAST('2024-01-06 16:00:00' AS TIMESTAMP(3)), NULL, 3, 0),
-(137, 'Fuzzy Wuzzy', CAST('2024-01-06 17:00:00' AS TIMESTAMP(3)), 7, 5, 0),
-(138, 'Paris', CAST('2024-01-06 18:00:00' AS TIMESTAMP(3)), 7, 4, 1),
-(139, 'London', CAST('2024-01-06 19:00:00' AS TIMESTAMP(3)), 4, 4, 1),
-(140, 'Bangkok', CAST('2024-01-06 20:00:00' AS TIMESTAMP(3)), 8, 5, 0),
-(141, 'Singapore', CAST('2024-01-06 21:00:00' AS TIMESTAMP(3)), 7, 2, 0),
-(142, 'New York', CAST('2024-01-06 22:00:00' AS TIMESTAMP(3)), 7, 4, 0),
-(143, 'Kuala Lumpur', CAST('2024-01-06 23:00:00' AS TIMESTAMP(3)), 1, 2, 1),
-(144, 'Istanbul', CAST('2024-01-07 00:00:00' AS TIMESTAMP(3)), 8, 5, 0),
-(145, 'Rome', CAST('2024-01-07 01:00:00' AS TIMESTAMP(3)), 5, 3, 1),
-(146, 'Hong Kong', CAST('2024-01-07 02:00:00' AS TIMESTAMP(3)), 5, 4, 1),
-(147, 'Dubai', CAST('2024-01-07 03:00:00' AS TIMESTAMP(3)), NULL, 5, 1),
-(148, 'Shanghai', CAST('2024-01-07 04:00:00' AS TIMESTAMP(3)), 4, 1, 1),
-(149, 'Las Vegas', CAST('2024-01-07 05:00:00' AS TIMESTAMP(3)), 3, 3, 0),
-(150, 'Miami', CAST('2024-01-07 06:00:00' AS TIMESTAMP(3)), 7, 2, 1),
-(151, 'Toronto', CAST('2024-01-07 07:00:00' AS TIMESTAMP(3)), 2, 5, 0),
-(152, 'Los Angeles', CAST('2024-01-07 08:00:00' AS TIMESTAMP(3)), 8, 2, 1),
-(153, 'Amsterdam', CAST('2024-01-07 09:00:00' AS TIMESTAMP(3)), 7, 2, 1),
-(154, 'Moscow', CAST('2024-01-07 10:00:00' AS TIMESTAMP(3)), 9, 1, 0),
-(155, 'Cairo', CAST('2024-01-07 11:00:00' AS TIMESTAMP(3)), 4, 3, 0),
-(156, 'Barcelona', CAST('2024-01-07 12:00:00' AS TIMESTAMP(3)), 3, 1, 0),
-(157, 'Dublin', CAST('2024-01-07 13:00:00' AS TIMESTAMP(3)), 6, 5, 1),
-(158, 'Prague', CAST('2024-01-07 14:00:00' AS TIMESTAMP(3)), 8, 3, 1),
-(159, 'Madrid', CAST('2024-01-07 15:00:00' AS TIMESTAMP(3)), 6, 2, 0),
-(160, 'San Francisco', CAST('2024-01-07 16:00:00' AS TIMESTAMP(3)), NULL, 4, 0),
-(161, 'Vancouver', CAST('2024-01-07 17:00:00' AS TIMESTAMP(3)), 2, 3, 0),
-(162, 'Vienna', CAST('2024-01-07 18:00:00' AS TIMESTAMP(3)), 4, 1, 1),
-(163, 'Budapest', CAST('2024-01-07 19:00:00' AS TIMESTAMP(3)), 7, 1, 1),
-(164, 'Berlin', CAST('2024-01-07 20:00:00' AS TIMESTAMP(3)), 9, 3, 0),
-(165, 'Tokyo', CAST('2024-01-07 21:00:00' AS TIMESTAMP(3)), 6, 3, 0),
-(166, 'Mexico City', CAST('2024-01-07 22:00:00' AS TIMESTAMP(3)), 8, 2, 0),
-(167, 'Rio de Janeiro', CAST('2024-01-07 23:00:00' AS TIMESTAMP(3)), 6, 4, 1),
-(168, 'Buenos Aires', CAST('2024-01-08 00:00:00' AS TIMESTAMP(3)), 7, 3, 0),
-(169, 'Seoul', CAST('2024-01-08 01:00:00' AS TIMESTAMP(3)), 2, 2, 1),
-(170, 'Athens', CAST('2024-01-08 02:00:00' AS TIMESTAMP(3)), 2, 1, 0),
-(171, 'Jerusalem', CAST('2024-01-08 03:00:00' AS TIMESTAMP(3)), 3, 5, 0),
-(172, 'St. Petersburg', CAST('2024-01-08 04:00:00' AS TIMESTAMP(3)), 9, 1, 1),
-(173, 'Sydney', CAST('2024-01-08 05:00:00' AS TIMESTAMP(3)), NULL, 5, 0),
-(174, 'Mumbai', CAST('2024-01-08 06:00:00' AS TIMESTAMP(3)), 1, 1, 1),
-(175, 'Munich', CAST('2024-01-08 07:00:00' AS TIMESTAMP(3)), 7, 3, 1),
-(176, 'Seattle', CAST('2024-01-08 08:00:00' AS TIMESTAMP(3)), 5, 1, 0),
-(177, 'Delhi', CAST('2024-01-08 09:00:00' AS TIMESTAMP(3)), 8, 3, 1),
-(178, 'Venice', CAST('2024-01-08 10:00:00' AS TIMESTAMP(3)), 9, 4, 0),
-(179, 'Beijing', CAST('2024-01-08 11:00:00' AS TIMESTAMP(3)), 2, 4, 0),
-(180, 'Cape Town', CAST('2024-01-08 12:00:00' AS TIMESTAMP(3)), 6, 3, 1),
-(181, 'Washington D.C.', CAST('2024-01-08 13:00:00' AS TIMESTAMP(3)), 3, 3, 0),
-(182, 'Florence', CAST('2024-01-08 14:00:00' AS TIMESTAMP(3)), 4, 4, 0),
-(183, 'Atlanta', CAST('2024-01-08 15:00:00' AS TIMESTAMP(3)), 9, 5, 0),
-(184, 'Boston', CAST('2024-01-08 16:00:00' AS TIMESTAMP(3)), NULL, 4, 1),
-(185, 'Philadelphia', CAST('2024-01-08 17:00:00' AS TIMESTAMP(3)), 5, 4, 0),
-(186, 'Chicago', CAST('2024-01-08 18:00:00' AS TIMESTAMP(3)), 2, 2, 0),
-(187, 'Montreal', CAST('2024-01-08 19:00:00' AS TIMESTAMP(3)), 8, 4, 1),
-(188, 'San Diego', CAST('2024-01-08 20:00:00' AS TIMESTAMP(3)), NULL, 3, 0),
-(189, 'Warsaw', CAST('2024-01-08 21:00:00' AS TIMESTAMP(3)), 2, 5, 1),
-(190, 'Sharm el-Sheikh', CAST('2024-01-08 22:00:00' AS TIMESTAMP(3)), 3, 3, 0),
-(191, 'Stockholm', CAST('2024-01-08 23:00:00' AS TIMESTAMP(3)), 8, 3, 0),
-(192, 'Cancún', CAST('2024-01-09 00:00:00' AS TIMESTAMP(3)), 3, 2, 1),
-(193, 'Dallas', CAST('2024-01-09 01:00:00' AS TIMESTAMP(3)), NULL, 2, 1),
-(194, 'Milan', CAST('2024-01-09 02:00:00' AS TIMESTAMP(3)), 3, 3, 0),
-(195, 'Oslo', CAST('2024-01-09 03:00:00' AS TIMESTAMP(3)), 5, 1, 0),
-(196, 'Lisbon', CAST('2024-01-09 04:00:00' AS TIMESTAMP(3)), NULL, 3, 0),
-(197, 'Punta Cana', CAST('2024-01-09 05:00:00' AS TIMESTAMP(3)), 2, 5, 0),
-(198, 'Antalya', CAST('2024-01-09 06:00:00' AS TIMESTAMP(3)), 2, 1, 0),
-(199, 'Mecca', CAST('2024-01-09 07:00:00' AS TIMESTAMP(3)), 7, 3, 1),
-(200, 'Macau', CAST('2024-01-09 08:00:00' AS TIMESTAMP(3)), 1, 1, 1),
-(201, 'Johannesburg', CAST('2024-01-09 09:00:00' AS TIMESTAMP(3)), 2, 2, 0),
-(202, 'Pattaya', CAST('2024-01-09 10:00:00' AS TIMESTAMP(3)), 2, 1, 0),
-(203, 'Kiev', CAST('2024-01-09 11:00:00' AS TIMESTAMP(3)), 8, 2, 0),
-(204, 'Shenzhen', CAST('2024-01-09 12:00:00' AS TIMESTAMP(3)), 6, 5, 0),
-(205, 'Bucharest', CAST('2024-01-09 13:00:00' AS TIMESTAMP(3)), 7, 2, 1),
-(206, 'Taipei', CAST('2024-01-09 14:00:00' AS TIMESTAMP(3)), 2, 4, 1),
-(207, 'Brussels', CAST('2024-01-09 15:00:00' AS TIMESTAMP(3)), 8, 3, 1),
-(208, 'Marrakesh', CAST('2024-01-09 16:00:00' AS TIMESTAMP(3)), 2, 2, 0),
-(209, 'Orlando', CAST('2024-01-09 17:00:00' AS TIMESTAMP(3)), 4, 4, 1),
-(210, 'Phuket', CAST('2024-01-09 18:00:00' AS TIMESTAMP(3)), 4, 4, 0),
-(211, 'Edirne', CAST('2024-01-09 19:00:00' AS TIMESTAMP(3)), 1, 2, 1),
-(212, 'Bali', CAST('2024-01-09 20:00:00' AS TIMESTAMP(3)), 6, 1, 0),
-(213, 'Copenhagen', CAST('2024-01-09 21:00:00' AS TIMESTAMP(3)), 8, 3, 1),
-(214, 'São Paulo', CAST('2024-01-09 22:00:00' AS TIMESTAMP(3)), 3, 4, 1),
-(215, 'Jakarta', CAST('2024-01-09 23:00:00' AS TIMESTAMP(3)), 3, 4, 1),
-(216, 'Auckland', CAST('2024-01-10 00:00:00' AS TIMESTAMP(3)), 4, 1, 0),
-(217, 'Honolulu', CAST('2024-01-10 01:00:00' AS TIMESTAMP(3)), 4, 4, 1),
-(218, 'Wellington', CAST('2024-01-10 02:00:00' AS TIMESTAMP(3)), 2, 1, 0),
-(219, 'New Orleans', CAST('2024-01-10 03:00:00' AS TIMESTAMP(3)), 5, 5, 0),
-(220, 'Petra', CAST('2024-01-10 04:00:00' AS TIMESTAMP(3)), 3, 2, 0),
-(221, 'Edinburgh', CAST('2024-01-10 05:00:00' AS TIMESTAMP(3)), 3, 1, 0),
-(222, 'Melbourne', CAST('2024-01-10 06:00:00' AS TIMESTAMP(3)), 8, 1, 1),
-(223, 'Manila', CAST('2024-01-10 07:00:00' AS TIMESTAMP(3)), 4, 1, 1),
-(224, 'Houston', CAST('2024-01-10 08:00:00' AS TIMESTAMP(3)), 8, 4, 1),
-(225, 'Lima', CAST('2024-01-10 09:00:00' AS TIMESTAMP(3)), 1, 5, 0),
-(226, 'Santiago', CAST('2024-01-10 10:00:00' AS TIMESTAMP(3)), 5, 2, 0),
-(227, 'Bogotá', CAST('2024-01-10 11:00:00' AS TIMESTAMP(3)), 3, 1, 0),
-(228, 'Zürich', CAST('2024-01-10 12:00:00' AS TIMESTAMP(3)), 3, 2, 1),
-(229, 'Trafalgar Square', CAST('2024-01-10 13:00:00' AS TIMESTAMP(3)), 5, 5, 0),
-(230, 'Niagara Falls', CAST('2024-01-10 14:00:00' AS TIMESTAMP(3)), 6, 2, 1),
-(231, 'Notre Dame', CAST('2024-01-10 15:00:00' AS TIMESTAMP(3)), 7, 5, 0),
-(232, 'Great Wall', CAST('2024-01-10 16:00:00' AS TIMESTAMP(3)), 7, 5, 1),
-(233, 'Everland', CAST('2024-01-10 17:00:00' AS TIMESTAMP(3)), 5, 2, 1),
-(234, 'Grand Canyon', CAST('2024-01-10 18:00:00' AS TIMESTAMP(3)), 2, 1, 0),
-(235, 'Ocean Park', CAST('2024-01-10 19:00:00' AS TIMESTAMP(3)), 9, 5, 0),
-(236, 'Empire State', CAST('2024-01-10 20:00:00' AS TIMESTAMP(3)), 3, 3, 0),
-(237, 'Pompeii', CAST('2024-01-10 21:00:00' AS TIMESTAMP(3)), 2, 1, 0),
-(238, 'Versailles', CAST('2024-01-10 22:00:00' AS TIMESTAMP(3)), 7, 1, 0),
-(239, 'Lake Mead', CAST('2024-01-10 23:00:00' AS TIMESTAMP(3)), 7, 3, 1),
-(240, 'Lotte World', CAST('2024-01-11 00:00:00' AS TIMESTAMP(3)), 6, 4, 1),
-(241, 'Victoria Peak', CAST('2024-01-11 01:00:00' AS TIMESTAMP(3)), 1, 1, 1);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (1, 'Aithusa', TIMESTAMP '2007-04-21 07:55:36', 4, 2, 0);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (2, 'Acid green', TIMESTAMP '2003-06-10 01:24:10', 7, 5, 0);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (3, 'Apple', TIMESTAMP '2023-12-23 18:13:14', 6, 3, 1);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (4, 'Broadway', TIMESTAMP '2008-05-23 02:49:31', 5, 5, 0);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (5, 'Ancalagon', TIMESTAMP '2018-08-14 13:07:10', 5, 5, 0);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (6, 'Allium drumstick', TIMESTAMP '2010-12-01 12:46:05', NULL, 2, 0);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (7, 'Lisbon', TIMESTAMP '2012-10-28 03:13:09', 6, 1, 1);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (8, 'Ablajeck', TIMESTAMP '2001-04-25 23:47:20', 5, 2, 1);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (9, 'Acaeria', TIMESTAMP '2004-06-15 10:04:57', 8, 5, 1);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (10, 'Amsterdam', TIMESTAMP '2009-07-24 10:06:12', 2, 3, 1);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (11, 'Helo Prime', TIMESTAMP '2008-12-11 06:04:06', 5, 2, 0);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (12, 'Shruikan', TIMESTAMP '2009-11-03 14:52:44', 4, 3, 0);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (13, 'California pepperberry', TIMESTAMP '2003-04-30 15:00:22', NULL, 3, 1);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (14, 'Calla lily white', TIMESTAMP '2017-02-09 07:59:06', 9, 3, 1);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (15, 'Dahlia', TIMESTAMP '2018-03-31 04:10:24', 7, 1, 1);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (16, 'Delphinium Belladonna', TIMESTAMP '2017-03-09 11:23:32', 5, 1, 0);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (17, 'Delphinium Pacific Giant', TIMESTAMP '2019-12-20 03:48:37', 3, 4, 0);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (18, 'Daffodil', TIMESTAMP '2023-07-01 18:12:36', 2, 5, 1);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (19, 'Eric John', TIMESTAMP '2019-02-19 16:50:07', NULL, 4, 0);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (20, 'Eucalyptus silver dollar', TIMESTAMP '2022-01-04 13:17:48', 7, 3, 1);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (21, 'Eucalyptus seeded', TIMESTAMP '2002-09-12 19:03:00', 7, 2, 1);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (22, 'Fernleaf Yarrow', TIMESTAMP '2000-07-05 02:38:07', 4, 1, 0);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (23, 'Foxtail fern', TIMESTAMP '2018-06-27 18:27:42', 9, 2, 0);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (24, 'Freesia', TIMESTAMP '2008-01-07 12:07:50', NULL, 5, 0);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (25, 'Feverfew', TIMESTAMP '2016-05-23 18:57:08', 6, 3, 0);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (26, 'Flax New Zealand', TIMESTAMP '2008-01-01 19:49:56', 7, 5, 1);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (27, 'Godetia', TIMESTAMP '2000-07-06 19:59:56', 7, 4, 1);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (28, 'Gardenia', TIMESTAMP '2022-04-23 17:46:27', 8, 3, 1);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (29, 'Gerbera daisy', TIMESTAMP '2014-11-15 02:58:26', 4, 2, 0);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (30, 'Gerbera Ruby Red', TIMESTAMP '2021-01-09 21:49:34', 2, 2, 0);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (31, 'Gayfeather', TIMESTAMP '2003-03-02 01:15:30', 2, 5, 1);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (32, 'Goldenrod', TIMESTAMP '2004-01-01 15:58:26', NULL, 4, 0);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (33, 'Heather', TIMESTAMP '2002-10-11 02:43:07', 6, 2, 0);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (34, 'Hydrangea', TIMESTAMP '2023-10-07 12:52:12', 3, 1, 1);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (35, 'Ivy', TIMESTAMP '2008-07-24 02:49:48', 5, 5, 0);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (36, 'Japhette orchid', TIMESTAMP '2017-04-27 11:58:47', 1, 1, 0);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (37, 'Kangaroo paw yellow', TIMESTAMP '2005-04-09 19:00:12', 3, 5, 0);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (38, 'Lace fern', TIMESTAMP '2016-07-12 21:10:59', 7, 4, 0);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (39, 'Lily of the Nile – Alba', TIMESTAMP '2021-10-03 11:05:46', 9, 4, 0);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (40, 'Lumex', TIMESTAMP '2018-09-28 10:50:17', 2, 5, 0);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (41, 'Larkspur pink', TIMESTAMP '2014-09-07 16:27:05', 2, 3, 0);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (42, 'Lily of the valley', TIMESTAMP '2005-11-13 01:51:10', 7, 4, 1);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (43, 'Lisianthus misty blue', TIMESTAMP '2007-05-07 02:40:31', NULL, 2, 0);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (44, 'Lily Elite', TIMESTAMP '2010-05-21 19:03:49', 4, 4, 0);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (45, 'Lavender', TIMESTAMP '2015-03-31 05:09:17', 2, 1, 0);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (46, 'Lily Monte Negro', TIMESTAMP '2025-06-28 00:14:19', 1, 1, 1);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (47, 'Lily Casa Blanca', TIMESTAMP '2002-01-07 10:34:20', NULL, 4, 0);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (48, 'Lily Stargazer', TIMESTAMP '2002-02-12 18:28:07', 8, 3, 1);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (49, 'Love in a mist', TIMESTAMP '2002-01-13 01:58:18', 5, 2, 1);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (50, 'Mimosa', TIMESTAMP '2001-03-14 14:41:00', 4, 2, 1);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (51, 'Ming fern', TIMESTAMP '2023-11-09 16:20:58', 1, 3, 0);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (52, 'Monkshood', TIMESTAMP '2025-07-18 15:01:27', 2, 1, 0);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (53, 'Monte Cassino', TIMESTAMP '2010-11-13 11:46:34', NULL, 5, 1);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (54, 'Marguerite daisy', TIMESTAMP '2009-01-27 01:15:57', 5, 5, 0);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (55, 'Montbretia', TIMESTAMP '2010-08-02 09:37:40', 2, 1, 0);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (56, 'Misty blue Limonium', TIMESTAMP '2016-05-03 16:11:40', 2, 1, 1);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (57, 'Melaleuca', TIMESTAMP '2025-07-29 23:34:53', 2, 5, 0);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (58, 'Moon orchid', TIMESTAMP '2005-03-24 16:22:49', NULL, 1, 1);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (59, 'Nerine', TIMESTAMP '2025-02-15 20:16:44', 7, 4, 1);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (60, 'Peruvian lily', TIMESTAMP '2010-09-12 21:50:18', 3, 1, 0);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (61, 'Paper Reed', TIMESTAMP '2005-05-11 02:16:31', 5, 5, 0);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (62, 'Papyrus lions head', TIMESTAMP '2012-03-09 23:16:53', 7, 3, 0);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (63, 'Pincushion', TIMESTAMP '2012-09-28 08:37:44', 6, 4, 1);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (64, 'Phlox', TIMESTAMP '2025-06-29 14:46:35', 4, 3, 0);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (65, 'Pitt Variegated', TIMESTAMP '2015-10-29 01:23:29', 5, 5, 0);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (66, 'Peony', TIMESTAMP '2008-01-12 19:44:22', NULL, 5, 0);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (67, 'Pink Mink', TIMESTAMP '2005-08-04 04:42:05', 7, 5, 0);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (68, 'Pincushion flower annual', TIMESTAMP '2013-02-12 01:49:18', 5, 4, 1);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (69, 'Rose Champagne', TIMESTAMP '2002-09-19 22:21:51', 6, 5, 1);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (70, 'Red Rover', TIMESTAMP '2023-06-13 15:11:06', 1, 1, 0);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (71, 'Rose Fire & Ice', TIMESTAMP '2006-07-04 08:07:38', 9, 3, 0);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (72, 'Rice flower', TIMESTAMP '2010-03-11 02:14:13', 7, 2, 0);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (73, 'Ranunculus', TIMESTAMP '2002-07-17 10:27:19', 2, 2, 1);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (74, 'Rose Osiana', TIMESTAMP '2020-08-18 07:51:42', NULL, 4, 1);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (75, 'Rose Bridal White', TIMESTAMP '2017-10-30 19:24:40', 1, 3, 0);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (76, 'Rose Royalty', TIMESTAMP '2006-09-05 18:12:22', 9, 4, 0);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (77, 'Rose Emblem', TIMESTAMP '2020-08-13 18:59:16', 2, 3, 0);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (78, 'Rose Fantasy', TIMESTAMP '2002-04-22 12:45:26', NULL, 1, 0);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (79, 'Rose Lavanda', TIMESTAMP '2024-09-24 11:43:29', 1, 4, 0);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (80, 'Rose Kardinal', TIMESTAMP '2020-06-06 13:53:28', NULL, 4, 0);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (81, 'Rose Diadem', TIMESTAMP '2024-03-06 00:09:31', 5, 5, 1);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (82, 'Rose Lady Liberty', TIMESTAMP '2017-08-21 23:34:49', 2, 5, 0);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (83, 'Rose Bridal Pink', TIMESTAMP '2020-08-23 20:27:42', 2, 1, 1);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (84, 'Summer poinsettia', TIMESTAMP '2007-05-07 15:58:36', 4, 2, 0);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (85, 'Sprengeri fern', TIMESTAMP '2023-09-05 20:34:48', 4, 5, 0);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (86, 'Strawberry banksia', TIMESTAMP '2015-01-07 12:16:20', 3, 3, 1);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (87, 'Safflower', TIMESTAMP '2017-04-05 14:14:36', NULL, 4, 1);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (88, 'Spider Fuji Yellow', TIMESTAMP '2005-12-05 14:38:49', 2, 3, 0);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (89, 'Salmon Reagan', TIMESTAMP '2024-07-30 01:44:39', 3, 1, 0);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (90, 'Sweet William', TIMESTAMP '2000-01-30 05:00:34', 2, 1, 1);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (91, 'Sunflower Sunbright', TIMESTAMP '2024-04-05 21:41:24', NULL, 3, 0);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (92, 'Strawflower', TIMESTAMP '2000-09-02 17:31:18', 9, 5, 0);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (93, 'Safari Sunset', TIMESTAMP '2009-12-31 09:51:55', 4, 5, 1);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (94, 'Sweet pea', TIMESTAMP '2008-02-26 14:24:20', 2, 4, 0);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (95, 'Statice blue', TIMESTAMP '2015-05-09 23:44:50', 7, 3, 0);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (96, 'Stock lavender', TIMESTAMP '2008-01-25 17:25:43', 1, 4, 1);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (97, 'Sword fern', TIMESTAMP '2024-12-22 13:59:16', 5, 4, 0);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (98, 'Star of Bethlehem', TIMESTAMP '2019-12-21 20:17:02', 8, 2, 0);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (99, 'Sage perennial', TIMESTAMP '2024-10-15 19:30:51', NULL, 4, 1);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (100, 'Saponaria', TIMESTAMP '2013-03-06 15:32:15', 7, 4, 0);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (101, 'Snapdragon apple blossom', TIMESTAMP '2019-05-25 18:18:29', 4, 2, 1);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (102, 'Saxicola', TIMESTAMP '2020-11-19 00:22:52', 8, 2, 1);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (103, 'Snapdragon magenta', TIMESTAMP '2000-09-19 06:55:11', 3, 3, 0);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (104, 'Solidaster', TIMESTAMP '2001-04-16 11:14:46', 2, 4, 1);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (105, 'Speedwell', TIMESTAMP '2025-05-03 00:24:04', NULL, 1, 0);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (106, 'Stephanotis', TIMESTAMP '2013-09-13 05:55:05', 3, 3, 0);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (107, 'Thorow-wax', TIMESTAMP '2006-05-21 19:39:05', 3, 2, 1);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (108, 'Telstar', TIMESTAMP '2008-04-04 12:52:19', 7, 1, 1);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (109, 'Tuberose', TIMESTAMP '2004-06-23 11:18:55', NULL, 4, 0);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (110, 'Tracelium', TIMESTAMP '2011-07-04 12:34:47', 3, 4, 0);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (111, 'Tulip pink', TIMESTAMP '2019-02-18 18:55:33', 3, 5, 1);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (112, 'Waxflower', TIMESTAMP '2016-10-23 22:52:30', 6, 2, 0);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (113, 'Willow curly', TIMESTAMP '2001-07-31 23:18:21', 3, 4, 1);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (114, 'Watsonia', TIMESTAMP '2010-12-31 16:36:25', 3, 3, 0);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (115, 'Ablajeck', TIMESTAMP '2023-12-04 18:18:50', 9, 1, 1);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (116, 'Abregado Rae', TIMESTAMP '2009-07-31 14:46:58', 8, 2, 1);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (117, 'Abrion', TIMESTAMP '2004-07-09 16:34:31', 3, 3, 1);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (118, 'Alderaan', TIMESTAMP '2023-10-14 10:41:33', 4, 1, 1);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (119, 'Allied Tion', TIMESTAMP '2004-08-28 16:32:01', 1, 4, 1);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (120, 'Altyr', TIMESTAMP '2007-08-20 14:09:51', 5, 2, 0);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (121, 'Andat', TIMESTAMP '2023-10-07 23:21:01', NULL, 3, 0);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (122, 'Six Flags', TIMESTAMP '2019-08-15 02:57:17', 2, 4, 1);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (123, 'SeaWorld', TIMESTAMP '2004-04-19 14:24:09', 8, 3, 1);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (124, 'Yosemite', TIMESTAMP '2024-09-10 22:33:28', 7, 2, 0);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (125, 'Stonehenge', TIMESTAMP '2009-12-26 05:33:10', 7, 3, 1);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (126, 'Machu Picchu', TIMESTAMP '2008-04-27 10:56:30', 5, 4, 0);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (127, 'Central Park', TIMESTAMP '2024-10-26 19:41:19', 4, 2, 0);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (128, 'Forbidden City', TIMESTAMP '2013-09-23 13:44:43', 5, 4, 1);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (129, 'Broadway', TIMESTAMP '2013-11-18 22:33:44', 5, 1, 0);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (130, 'Brooklyn Bridge', TIMESTAMP '2020-10-17 14:46:58', 7, 1, 0);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (131, 'Golden Gate', TIMESTAMP '2017-01-02 15:03:40', 5, 5, 0);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (132, 'Pike Place', TIMESTAMP '2023-03-19 03:37:25', 8, 3, 0);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (133, 'South Seaport', TIMESTAMP '2022-07-24 03:00:15', 3, 2, 0);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (134, 'Navy Pier', TIMESTAMP '2013-06-19 20:33:23', 9, 3, 0);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (135, 'Pier 39', TIMESTAMP '2006-04-18 21:16:55', 8, 3, 0);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (136, 'Fulvous', TIMESTAMP '2001-05-06 09:10:33', NULL, 3, 0);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (137, 'Fuzzy Wuzzy', TIMESTAMP '2005-03-30 02:39:19', 7, 5, 0);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (138, 'Paris', TIMESTAMP '2021-10-03 04:21:45', 7, 4, 1);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (139, 'London', TIMESTAMP '2005-06-25 13:05:03', 4, 4, 1);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (140, 'Bangkok', TIMESTAMP '2017-11-02 22:52:53', 8, 5, 0);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (141, 'Singapore', TIMESTAMP '2024-10-12 08:39:17', 7, 2, 0);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (142, 'New York', TIMESTAMP '2003-10-15 13:54:26', 7, 4, 0);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (143, 'Kuala Lumpur', TIMESTAMP '2011-08-04 12:27:26', 1, 2, 1);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (144, 'Istanbul', TIMESTAMP '2009-10-24 13:14:43', 8, 5, 0);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (145, 'Rome', TIMESTAMP '2023-03-18 16:03:17', 5, 3, 1);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (146, 'Hong Kong', TIMESTAMP '2022-11-12 08:17:51', 5, 4, 1);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (147, 'Dubai', TIMESTAMP '2007-06-23 08:32:40', NULL, 5, 1);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (148, 'Shanghai', TIMESTAMP '2008-01-28 04:30:12', 4, 1, 1);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (149, 'Las Vegas', TIMESTAMP '2006-07-08 04:57:22', 3, 3, 0);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (150, 'Miami', TIMESTAMP '2016-10-12 16:03:51', 7, 2, 1);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (151, 'Toronto', TIMESTAMP '2022-01-24 09:33:16', 2, 5, 0);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (152, 'Los Angeles', TIMESTAMP '2000-08-28 21:53:29', 8, 2, 1);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (153, 'Amsterdam', TIMESTAMP '2004-02-19 16:14:35', 7, 2, 1);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (154, 'Moscow', TIMESTAMP '2003-12-28 04:41:13', 9, 1, 0);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (155, 'Cairo', TIMESTAMP '2019-12-15 07:28:00', 4, 3, 0);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (156, 'Barcelona', TIMESTAMP '2009-12-15 04:22:37', 3, 1, 0);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (157, 'Dublin', TIMESTAMP '2006-03-30 19:13:56', 6, 5, 1);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (158, 'Prague', TIMESTAMP '2020-02-24 13:33:29', 8, 3, 1);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (159, 'Madrid', TIMESTAMP '2008-02-06 11:37:46', 6, 2, 0);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (160, 'San Francisco', TIMESTAMP '2014-07-14 09:33:24', NULL, 4, 0);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (161, 'Vancouver', TIMESTAMP '2017-05-22 14:07:01', 2, 3, 0);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (162, 'Vienna', TIMESTAMP '2023-07-26 21:58:57', 4, 1, 1);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (163, 'Budapest', TIMESTAMP '2002-12-11 21:01:47', 7, 1, 1);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (164, 'Berlin', TIMESTAMP '2012-12-14 06:26:17', 9, 3, 0);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (165, 'Tokyo', TIMESTAMP '2005-12-03 18:10:27', 6, 3, 0);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (166, 'Mexico City', TIMESTAMP '2016-09-06 13:26:49', 8, 2, 0);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (167, 'Rio de Janeiro', TIMESTAMP '2022-02-13 14:53:42', 6, 4, 1);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (168, 'Buenos Aires', TIMESTAMP '2025-06-11 05:12:38', 7, 3, 0);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (169, 'Seoul', TIMESTAMP '2017-01-15 11:22:04', 2, 2, 1);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (170, 'Athens', TIMESTAMP '2001-01-08 06:01:06', 2, 1, 0);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (171, 'Jerusalem', TIMESTAMP '2008-04-11 06:06:16', 3, 5, 0);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (172, 'St. Petersburg', TIMESTAMP '2005-11-26 20:38:28', 9, 1, 1);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (173, 'Sydney', TIMESTAMP '2016-09-13 08:48:18', NULL, 5, 0);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (174, 'Mumbai', TIMESTAMP '2000-11-03 05:50:45', 1, 1, 1);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (175, 'Munich', TIMESTAMP '2016-06-13 05:01:18', 7, 3, 1);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (176, 'Seattle', TIMESTAMP '2022-05-09 01:36:32', 5, 1, 0);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (177, 'Delhi', TIMESTAMP '2023-03-18 03:02:05', 8, 3, 1);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (178, 'Venice', TIMESTAMP '2001-11-22 04:14:11', 9, 4, 0);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (179, 'Beijing', TIMESTAMP '2006-10-03 10:56:10', 2, 4, 0);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (180, 'Cape Town', TIMESTAMP '2021-09-21 20:02:00', 6, 3, 1);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (181, 'Washington D.C.', TIMESTAMP '2024-01-11 16:43:16', 3, 3, 0);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (182, 'Florence', TIMESTAMP '2004-06-18 09:25:39', 4, 4, 0);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (183, 'Atlanta', TIMESTAMP '2002-06-02 19:20:45', 9, 5, 0);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (184, 'Boston', TIMESTAMP '2001-03-28 13:42:28', NULL, 4, 1);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (185, 'Philadelphia', TIMESTAMP '2002-06-04 08:19:30', 5, 4, 0);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (186, 'Chicago', TIMESTAMP '2021-11-02 14:52:36', 2, 2, 0);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (187, 'Montreal', TIMESTAMP '2013-06-16 10:36:05', 8, 4, 1);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (188, 'San Diego', TIMESTAMP '2000-09-29 14:07:48', NULL, 3, 0);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (189, 'Warsaw', TIMESTAMP '2020-04-20 06:20:29', 2, 5, 1);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (190, 'Sharm el-Sheikh', TIMESTAMP '2012-06-15 14:47:20', 3, 3, 0);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (191, 'Stockholm', TIMESTAMP '2016-04-17 08:31:49', 8, 3, 0);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (192, 'Cancún', TIMESTAMP '2005-09-20 20:24:16', 3, 2, 1);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (193, 'Dallas', TIMESTAMP '2007-12-11 18:32:34', NULL, 2, 1);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (194, 'Milan', TIMESTAMP '2016-07-31 15:37:46', 3, 3, 0);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (195, 'Oslo', TIMESTAMP '2009-08-07 06:44:23', 5, 1, 0);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (196, 'Lisbon', TIMESTAMP '2000-10-23 07:45:00', NULL, 3, 0);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (197, 'Punta Cana', TIMESTAMP '2020-07-24 14:13:18', 2, 5, 0);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (198, 'Antalya', TIMESTAMP '2004-02-04 18:41:24', 2, 1, 0);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (199, 'Mecca', TIMESTAMP '2001-06-26 15:25:43', 7, 3, 1);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (200, 'Macau', TIMESTAMP '2005-04-03 17:08:57', 1, 1, 1);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (201, 'Johannesburg', TIMESTAMP '2013-11-14 07:10:10', 2, 2, 0);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (202, 'Pattaya', TIMESTAMP '2024-06-25 19:02:54', 2, 1, 0);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (203, 'Kiev', TIMESTAMP '2015-12-01 14:20:39', 8, 2, 0);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (204, 'Shenzhen', TIMESTAMP '2017-04-29 00:42:01', 6, 5, 0);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (205, 'Bucharest', TIMESTAMP '2015-02-28 07:26:40', 7, 2, 1);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (206, 'Taipei', TIMESTAMP '2013-05-27 10:56:06', 2, 4, 1);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (207, 'Brussels', TIMESTAMP '2024-11-17 22:52:18', 8, 3, 1);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (208, 'Marrakesh', TIMESTAMP '2014-08-07 21:07:08', 2, 2, 0);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (209, 'Orlando', TIMESTAMP '2017-10-12 13:37:59', 4, 4, 1);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (210, 'Phuket', TIMESTAMP '2015-05-29 11:17:17', 4, 4, 0);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (211, 'Edirne', TIMESTAMP '2000-11-17 22:38:34', 1, 2, 1);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (212, 'Bali', TIMESTAMP '2017-02-18 12:14:05', 6, 1, 0);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (213, 'Copenhagen', TIMESTAMP '2005-10-09 02:30:41', 8, 3, 1);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (214, 'São Paulo', TIMESTAMP '2011-06-23 03:19:32', 3, 4, 1);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (215, 'Jakarta', TIMESTAMP '2002-11-26 02:51:46', 3, 4, 1);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (216, 'Auckland', TIMESTAMP '2006-12-19 20:32:01', 4, 1, 0);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (217, 'Honolulu', TIMESTAMP '2011-08-12 11:43:17', 4, 4, 1);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (218, 'Wellington', TIMESTAMP '2001-10-20 13:08:58', 2, 1, 0);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (219, 'New Orleans', TIMESTAMP '2017-06-25 19:37:53', 5, 5, 0);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (220, 'Petra', TIMESTAMP '2025-08-20 22:53:43', 3, 2, 0);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (221, 'Edinburgh', TIMESTAMP '2015-11-30 08:28:40', 3, 1, 0);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (222, 'Melbourne', TIMESTAMP '2011-05-30 07:03:58', 8, 1, 1);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (223, 'Manila', TIMESTAMP '2014-07-29 18:40:21', 4, 1, 1);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (224, 'Houston', TIMESTAMP '2006-02-04 07:53:00', 8, 4, 1);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (225, 'Lima', TIMESTAMP '2020-03-29 23:15:13', 1, 5, 0);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (226, 'Santiago', TIMESTAMP '2000-05-18 17:29:42', 5, 2, 0);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (227, 'Bogotá', TIMESTAMP '2003-01-13 07:52:58', 3, 1, 0);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (228, 'Zürich', TIMESTAMP '2011-06-03 06:51:27', 3, 2, 1);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (229, 'Trafalgar Square', TIMESTAMP '2013-11-14 03:13:44', 5, 5, 0);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (230, 'Niagara Falls', TIMESTAMP '2021-04-14 17:40:30', 6, 2, 1);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (231, 'Notre Dame', TIMESTAMP '2021-08-02 23:11:38', 7, 5, 0);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (232, 'Great Wall', TIMESTAMP '2003-08-20 21:48:12', 7, 5, 1);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (233, 'Everland', TIMESTAMP '2023-10-30 06:21:38', 5, 2, 1);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (234, 'Grand Canyon', TIMESTAMP '2005-04-08 07:00:44', 2, 1, 0);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (235, 'Ocean Park', TIMESTAMP '2017-08-24 22:58:06', 9, 5, 0);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (236, 'Empire State', TIMESTAMP '2013-09-11 22:20:37', 3, 3, 0);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (237, 'Pompeii', TIMESTAMP '2024-11-12 10:38:58', 2, 1, 0);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (238, 'Versailles', TIMESTAMP '2001-01-01 15:38:30', 7, 1, 0);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (239, 'Lake Mead', TIMESTAMP '2017-05-31 06:41:35', 7, 3, 1);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (240, 'Lotte World', TIMESTAMP '2025-03-22 10:43:10', 6, 4, 1);
+INSERT INTO Games (id, "name", start, duration, game_type_id, is_finished) OVERRIDING SYSTEM VALUE VALUES (241, 'Victoria Peak', TIMESTAMP '2006-10-08 07:49:39', 1, 1, 1);
 
 INSERT INTO GameTypeForbiddenItems (item_id, game_type_id) 
 VALUES (1, 1),
@@ -3641,407 +3639,404 @@ INSERT INTO UserGameItems (item_id, user_game_id)
 (577, 69),
 (577, 265);
 
-INSERT INTO Users (Id, username, first_name, last_name, email, registration_date, is_deleted, ip_address) OVERRIDING SYSTEM VALUE 
-VALUES 
-(1, 'VGeorgiev', 'Vladimir', 'Georgiev', 'vlado@softuni.bg', CAST('2024-01-11 02:00:00' AS TIMESTAMP(3)), 0, '74.212.145.183'),
-(2, 'nakov', 'Svetlin', 'Nakov', 'nakov@softuni.bg', CAST('2024-01-11 03:00:00' AS TIMESTAMP(3)), 0, '14.51.35.30'),
-(3, 'vladislav.karamfilov', 'Vladislav', 'Karamfilov', 'vladislav@softuni.bg', CAST('2024-01-11 04:00:00' AS TIMESTAMP(3)), 0, '84.191.139.65'),
-(4, 'Petya', 'Petya', 'Grozdarska', 'petya@softuni.bg', CAST('2024-01-11 05:00:00' AS TIMESTAMP(3)), 0, '134.108.213.164'),
-(5, 'Alex', 'Alexandra', 'Svilarova', 'alex@softuni.bg', CAST('2024-01-11 06:00:00' AS TIMESTAMP(3)), 0, '116.33.3.1'),
-(6, 'Pesho', 'Peter', 'Goshev', 'pesho@abv.bg', CAST('2024-01-11 07:00:00' AS TIMESTAMP(3)), 0, '211.246.110.53'),
-(7, 'Minka', 'Minka', 'Poryazova', 'minka@gmail.com', CAST('2024-01-11 08:00:00' AS TIMESTAMP(3)), 1, '121.230.231.161'),
-(8, 'Siyka', 'Syika', 'Stoyanova', 'sukis@mail.bg', CAST('2024-01-11 09:00:00' AS TIMESTAMP(3)), 0, '188.77.78.178'),
-(9, 'Stamat', 'Stamat', 'Strahilov', 'stamo@gmail.com', CAST('2024-01-11 10:00:00' AS TIMESTAMP(3)), 0, '180.166.72.243'),
-(10, 'irritatingdeter', 'MARY', 'SMITH', 'stone@meekness.com', CAST('2024-01-11 11:00:00' AS TIMESTAMP(3)), 0, '193.120.9.208'),
-(11, 'nangindragon', 'PATRICIA', 'JOHNSON', 'ca-tech@dps.centrin.net.id', CAST('2024-01-11 12:00:00' AS TIMESTAMP(3)), 0, '198.201.172.219'),
-(12, 'monoxidecos', 'LINDA', 'WILLIAMS', 'asst_dos@astonrasuna.com', CAST('2024-01-11 13:00:00' AS TIMESTAMP(3)), 0, '230.100.69.15'),
-(13, 'intpox', 'BARBARA', 'BROWN', 'achatv@cbn.net.id', CAST('2024-01-11 14:00:00' AS TIMESTAMP(3)), 0, '223.207.201.4'),
-(14, 'sweethorseman', 'ELIZABETH', 'JONES', 'bali@tuguhotels.com', CAST('2024-01-11 15:00:00' AS TIMESTAMP(3)), 0, '174.165.203.176'),
-(15, 'baroquegainful', 'MARIA', 'MILLER', 'bliss@thebale.com', CAST('2024-01-11 16:00:00' AS TIMESTAMP(3)), 0, '211.216.90.27'),
-(16, 'chewyway', 'JENNIFER', 'DAVIS', 'trinanda_lestyowati@telkomsel.co.id', CAST('2024-01-11 17:00:00' AS TIMESTAMP(3)), 0, '9.39.60.233'),
-(17, 'hinneybiggest', 'SUSAN', 'GARCIA', 'amartabali@dps.centrin.net.id', CAST('2024-01-11 18:00:00' AS TIMESTAMP(3)), 0, '24.147.195.22'),
-(18, 'admincuttle', 'MARGARET', 'RODRIGUEZ', 'baliminimalist@yahoo.com', CAST('2024-01-11 19:00:00' AS TIMESTAMP(3)), 0, '110.112.182.73'),
-(19, 'cagedegyptian', 'DOROTHY', 'MARTINEZ', 'adhidharma@denpasar.wasantara.net.id', CAST('2024-01-11 20:00:00' AS TIMESTAMP(3)), 0, '228.44.241.182'),
-(20, 'filknotation', 'LISA', 'WILSON', 'centralreservation@ramayanahotel.com', CAST('2024-01-11 21:00:00' AS TIMESTAMP(3)), 0, '168.68.45.62'),
-(21, 'corruptpizz', 'NANCY', 'YOUNG', 'apribadi@balimandira.com', CAST('2024-01-11 22:00:00' AS TIMESTAMP(3)), 1, '121.34.206.203'),
-(22, 'buildingdeltoid', 'KAREN', 'ANDERSON', 'cdagenhart@ifc.org', CAST('2024-01-11 23:00:00' AS TIMESTAMP(3)), 0, '174.22.35.245'),
-(23, 'whiningdelay', 'BETTY', 'TAYLOR', 'dana_supriyanto@interconti.com', CAST('2024-01-12 00:00:00' AS TIMESTAMP(3)), 0, '249.109.98.206'),
-(24, 'studentdroopy', 'HELEN', 'HERNANDEZ', 'dos@novotelbali.com', CAST('2024-01-12 01:00:00' AS TIMESTAMP(3)), 0, '75.221.109.65'),
-(25, 'electfarty', 'SANDRA', 'MOORE', 'daniel@hotelpadma.com', CAST('2024-01-12 02:00:00' AS TIMESTAMP(3)), 0, '211.102.105.71'),
-(26, 'bashsassafras', 'DONNA', 'MARTIN', 'daniel@balibless.com', CAST('2024-01-12 03:00:00' AS TIMESTAMP(3)), 0, '128.252.225.27'),
-(27, 'virtuecoxcomb', 'CAROL', 'JACKSON', 'djoko_p@jayakartahotelsresorts.com', CAST('2024-01-12 04:00:00' AS TIMESTAMP(3)), 0, '126.68.240.204'),
-(28, 'unfriendlyfurther', 'RUTH', 'THOMPSON', 'expdepot@indosat.net.id', CAST('2024-01-12 05:00:00' AS TIMESTAMP(3)), 0, '6.72.34.16'),
-(29, 'bindbawdy', 'SHARON', 'WHITE', 'feby.adamsyah@idn.xerox.com', CAST('2024-01-12 06:00:00' AS TIMESTAMP(3)), 0, '192.157.20.222'),
-(30, 'warmbloodproclaim', 'MICHELLE', 'LOPEZ', 'christian_rizal@interconti.com', CAST('2024-01-12 07:00:00' AS TIMESTAMP(3)), 0, '183.153.209.90'),
-(31, 'skirltremendous', 'LAURA', 'LEE', 'singgih93@mailcity.com', CAST('2024-01-12 08:00:00' AS TIMESTAMP(3)), 1, '4.241.133.22'),
-(32, 'evolvingimportant', 'SARAH', 'GONZALEZ', 'idonk_gebhoy@yahoo.com', CAST('2024-01-12 09:00:00' AS TIMESTAMP(3)), 0, '223.175.227.173'),
-(33, 'sinceregrand', 'KIMBERLY', 'HARRIS', 'info@houseofbali.com', CAST('2024-01-12 10:00:00' AS TIMESTAMP(3)), 1, '168.89.155.169'),
-(34, 'swingbark', 'DEBORAH', 'CLARK', 'kyohana@toureast.net', CAST('2024-01-12 11:00:00' AS TIMESTAMP(3)), 0, '149.7.102.160'),
-(35, 'countrydecay', 'JESSICA', 'LEWIS', 'sales@nusaduahotel.com', CAST('2024-01-12 12:00:00' AS TIMESTAMP(3)), 0, '77.171.140.222'),
-(36, 'denyofficial', 'SHIRLEY', 'ROBINSON', 'jayakarta@mataram.wasantara.net.id', CAST('2024-01-12 13:00:00' AS TIMESTAMP(3)), 0, '97.251.110.7'),
-(37, 'inguinalself', 'CYNTHIA', 'WALKER', 'mapindo@indo.net.id', CAST('2024-01-12 14:00:00' AS TIMESTAMP(3)), 0, '255.111.250.207'),
-(38, 'leakingpity', 'ANGELA', 'PEREZ', 'anekabeach@dps.centrin.net.id', CAST('2024-01-12 15:00:00' AS TIMESTAMP(3)), 0, '113.238.74.11'),
-(39, 'brooklyndecent', 'MELISSA', 'HALL', 'sm@ramayanahotel.com', CAST('2024-01-12 16:00:00' AS TIMESTAMP(3)), 0, '160.49.15.18'),
-(40, 'slushyinflate', 'BRENDA', 'YOUNG', 'yogya@jayakartahotelsresorts.com', CAST('2024-01-12 17:00:00' AS TIMESTAMP(3)), 0, '156.197.106.224'),
-(41, 'hamtemple', 'AMY', 'ALLEN', 'garudawisatajaya@indo.net.id', CAST('2024-01-12 18:00:00' AS TIMESTAMP(3)), 0, '93.236.115.232'),
-(42, 'posteriorflowery', 'ANNA', 'SANCHEZ', 'ketut@kbatur.com', CAST('2024-01-12 19:00:00' AS TIMESTAMP(3)), 1, '105.26.72.120'),
-(43, 'bullockssip', 'REBECCA', 'WRIGHT', 'bondps@bonansatours.com', CAST('2024-01-12 20:00:00' AS TIMESTAMP(3)), 0, '209.112.96.8'),
-(44, 'ofliving', 'VIRGINIA', 'KING', 'witamgr@dps.centrin.net.id', CAST('2024-01-12 21:00:00' AS TIMESTAMP(3)), 1, '39.114.238.223'),
-(45, 'rateweed', 'VIRGINIA', 'GREEN', 'dtedja@indosat.net.id', CAST('2024-01-12 22:00:00' AS TIMESTAMP(3)), 0, '50.121.24.180'),
-(46, 'advisersspry', 'MARTHA', 'BAKER', 'info@stpbali.ac.id', CAST('2024-01-12 23:00:00' AS TIMESTAMP(3)), 1, '100.97.183.157'),
-(47, 'fixedbucking', 'AMANDA', 'ADAMS', 'baliprestigeho@dps.centrin.net.id', CAST('2024-01-13 00:00:00' AS TIMESTAMP(3)), 0, '138.206.25.177'),
-(48, 'karateperihelion', 'CHRISTINE', 'NELSON', 'pamilu@mas-travel.com', CAST('2024-01-13 01:00:00' AS TIMESTAMP(3)), 0, '153.41.84.164'),
-(49, 'unchinmole', 'MARIE', 'BAILEY', 'amandabl@indosat.net.id', CAST('2024-01-13 02:00:00' AS TIMESTAMP(3)), 0, '209.229.25.96'),
-(50, 'obliquepoof', 'JANET', 'HILL', 'marketing@csdwholiday.com', CAST('2024-01-13 03:00:00' AS TIMESTAMP(3)), 1, '44.128.204.194'),
-(51, 'halleycurved', 'CATHERINE', 'BELL', 'luha89@yahoo.com', CAST('2024-01-13 04:00:00' AS TIMESTAMP(3)), 0, '43.31.8.134'),
-(52, 'loosenoise', 'FRANCES', 'RAMIREZ', 'indahsuluh2002@yahoo.com.sg', CAST('2024-01-13 05:00:00' AS TIMESTAMP(3)), 0, '215.129.178.110'),
-(53, 'ionoriole', 'ANN', 'CAMPBELL', 'imz1991@yahoo.com', CAST('2024-01-13 06:00:00' AS TIMESTAMP(3)), 0, '82.95.233.223'),
-(54, 'gluttonousraspberry', 'JOYCE', 'MITCHELL', 'gus_war81@yahoo.com', CAST('2024-01-13 07:00:00' AS TIMESTAMP(3)), 0, '205.7.240.1'),
-(55, 'darwinquotient', 'DIANE', 'MURPHY', 'kf034@indosat.net.id', CAST('2024-01-13 08:00:00' AS TIMESTAMP(3)), 0, '145.94.245.251'),
-(56, 'yikeshydrostatic', 'ALICE', 'RIVERA', '800produkwil@posindonesia.co.id', CAST('2024-01-13 09:00:00' AS TIMESTAMP(3)), 1, '148.248.198.121'),
-(57, 'wagtailspicy', 'JULIE', 'MURPHY', 'kontak.synergi@yahoo.com', CAST('2024-01-13 10:00:00' AS TIMESTAMP(3)), 0, '97.238.94.44'),
-(58, 'neutralgazump', 'HEATHER', 'ROBERTS', 'oekaoeka@yahoo.com', CAST('2024-01-13 11:00:00' AS TIMESTAMP(3)), 0, '142.119.249.171'),
-(59, 'shodepee', 'TERESA', 'ALLEN', 'fitrianti@hotmail.com', CAST('2024-01-13 12:00:00' AS TIMESTAMP(3)), 0, '253.85.166.88'),
-(60, 'diagramsadagio', 'DORIS', 'SANCHEZ', 'h4ntoro@yahoo.com', CAST('2024-01-13 13:00:00' AS TIMESTAMP(3)), 0, '177.180.236.61'),
-(61, 'baleremuda', 'EVELYN', 'CARTER', 'novi_enbe@yahoo.com', CAST('2024-01-13 14:00:00' AS TIMESTAMP(3)), 0, '36.145.229.182'),
-(62, 'crowncrackers', 'GLORIA', 'PHILLIPS', 'dila_dewata@yahoo.co.id', CAST('2024-01-13 15:00:00' AS TIMESTAMP(3)), 0, '99.218.95.154'),
-(63, 'potterssnarky', 'CHERYL', 'EVANS', 'tiena_asfary@yahoo.co.id', CAST('2024-01-13 16:00:00' AS TIMESTAMP(3)), 1, '129.74.12.234'),
-(64, 'hurdlesurmise', 'MILDRED', 'TURNER', 'da_lawoffice@yahoo.com', CAST('2024-01-13 17:00:00' AS TIMESTAMP(3)), 0, '81.91.116.195'),
-(65, 'premiumseal', 'KATHERINE', 'TORRES', 'rini@ncsecurities.biz', CAST('2024-01-13 18:00:00' AS TIMESTAMP(3)), 0, '226.176.107.50'),
-(66, 'printerstencils', 'JOAN', 'PARKER', 'sudarnoto_hakim@yahoo.com', CAST('2024-01-13 19:00:00' AS TIMESTAMP(3)), 0, '66.198.191.174'),
-(67, 'citiesgrill', 'ASHLEY', 'COLLINS', 'wastioke@yahoo.com', CAST('2024-01-13 20:00:00' AS TIMESTAMP(3)), 0, '69.48.171.4'),
-(68, 'presidentsbasal', 'JUDITH', 'EDWARDS', 'lia_kiara97@yahoo.com', CAST('2024-01-13 21:00:00' AS TIMESTAMP(3)), 0, '243.30.11.69'),
-(69, 'skippingside', 'ROSE', 'MORRIS', 'b_astuti@telkomsel.co.id', CAST('2024-01-13 22:00:00' AS TIMESTAMP(3)), 0, '88.28.151.138'),
-(70, 'terrifymarzipan', 'JANICE', 'RIVERA', 'grfurniture@yahoo.com', CAST('2024-01-13 23:00:00' AS TIMESTAMP(3)), 1, '136.208.113.14'),
-(71, 'rotoriginally', 'KELLY', 'ROGERS', 'gosyen2000@hotmail.com', CAST('2024-01-14 00:00:00' AS TIMESTAMP(3)), 1, '146.141.16.116'); 
+INSERT INTO Users (id, username, first_name, last_name, email, registration_date, is_deleted, ip_address) OVERRIDING SYSTEM VALUE VALUES (1, 'VGeorgiev', 'Vladimir', 'Georgiev', 'vlado@softuni.bg', TIMESTAMP '2000-11-29 13:14:35', 0, '74.212.145.183');
+INSERT INTO Users (id, username, first_name, last_name, email, registration_date, is_deleted, ip_address) OVERRIDING SYSTEM VALUE VALUES (2, 'nakov', 'Svetlin', 'Nakov', 'nakov@softuni.bg', TIMESTAMP '2002-09-05 09:50:42', 0, '14.51.35.30');
+INSERT INTO Users (id, username, first_name, last_name, email, registration_date, is_deleted, ip_address) OVERRIDING SYSTEM VALUE VALUES (3, 'vladislav.karamfilov', 'Vladislav', 'Karamfilov', 'vladislav@softuni.bg', TIMESTAMP '2021-04-02 06:29:17', 0, '84.191.139.65');
+INSERT INTO Users (id, username, first_name, last_name, email, registration_date, is_deleted, ip_address) OVERRIDING SYSTEM VALUE VALUES (4, 'Petya', 'Petya', 'Grozdarska', 'petya@softuni.bg', TIMESTAMP '2002-09-28 11:31:59', 0, '134.108.213.164');
+INSERT INTO Users (id, username, first_name, last_name, email, registration_date, is_deleted, ip_address) OVERRIDING SYSTEM VALUE VALUES (5, 'Alex', 'Alexandra', 'Svilarova', 'alex@softuni.bg', TIMESTAMP '2009-09-18 01:48:57', 0, '116.33.3.1');
+INSERT INTO Users (id, username, first_name, last_name, email, registration_date, is_deleted, ip_address) OVERRIDING SYSTEM VALUE VALUES (6, 'Pesho', 'Peter', 'Goshev', 'pesho@abv.bg', TIMESTAMP '2024-01-27 13:32:07', 0, '211.246.110.53');
+INSERT INTO Users (id, username, first_name, last_name, email, registration_date, is_deleted, ip_address) OVERRIDING SYSTEM VALUE VALUES (7, 'Minka', 'Minka', 'Poryazova', 'minka@gmail.com', TIMESTAMP '2025-02-11 01:16:09', 1, '121.230.231.161');
+INSERT INTO Users (id, username, first_name, last_name, email, registration_date, is_deleted, ip_address) OVERRIDING SYSTEM VALUE VALUES (8, 'Siyka', 'Syika', 'Stoyanova', 'sukis@mail.bg', TIMESTAMP '2017-07-04 22:07:11', 0, '188.77.78.178');
+INSERT INTO Users (id, username, first_name, last_name, email, registration_date, is_deleted, ip_address) OVERRIDING SYSTEM VALUE VALUES (9, 'Stamat', 'Stamat', 'Strahilov', 'stamo@gmail.com', TIMESTAMP '2016-07-24 00:01:39', 0, '180.166.72.243');
+INSERT INTO Users (id, username, first_name, last_name, email, registration_date, is_deleted, ip_address) OVERRIDING SYSTEM VALUE VALUES (10, 'irritatingdeter', 'MARY', 'SMITH', 'stone@meekness.com', TIMESTAMP '2004-01-07 20:51:09', 0, '193.120.9.208');
+INSERT INTO Users (id, username, first_name, last_name, email, registration_date, is_deleted, ip_address) OVERRIDING SYSTEM VALUE VALUES (11, 'nangindragon', 'PATRICIA', 'JOHNSON', 'ca-tech@dps.centrin.net.id', TIMESTAMP '2021-12-02 02:29:13', 0, '198.201.172.219');
+INSERT INTO Users (id, username, first_name, last_name, email, registration_date, is_deleted, ip_address) OVERRIDING SYSTEM VALUE VALUES (12, 'monoxidecos', 'LINDA', 'WILLIAMS', 'asst_dos@astonrasuna.com', TIMESTAMP '2000-10-26 21:52:27', 0, '230.100.69.15');
+INSERT INTO Users (id, username, first_name, last_name, email, registration_date, is_deleted, ip_address) OVERRIDING SYSTEM VALUE VALUES (13, 'intpox', 'BARBARA', 'BROWN', 'achatv@cbn.net.id', TIMESTAMP '2016-03-09 22:16:15', 0, '223.207.201.4');
+INSERT INTO Users (id, username, first_name, last_name, email, registration_date, is_deleted, ip_address) OVERRIDING SYSTEM VALUE VALUES (14, 'sweethorseman', 'ELIZABETH', 'JONES', 'bali@tuguhotels.com', TIMESTAMP '2007-09-12 01:27:53', 0, '174.165.203.176');
+INSERT INTO Users (id, username, first_name, last_name, email, registration_date, is_deleted, ip_address) OVERRIDING SYSTEM VALUE VALUES (15, 'baroquegainful', 'MARIA', 'MILLER', 'bliss@thebale.com', TIMESTAMP '2015-03-31 23:31:00', 0, '211.216.90.27');
+INSERT INTO Users (id, username, first_name, last_name, email, registration_date, is_deleted, ip_address) OVERRIDING SYSTEM VALUE VALUES (16, 'chewyway', 'JENNIFER', 'DAVIS', 'trinanda_lestyowati@telkomsel.co.id', TIMESTAMP '2011-02-07 07:05:23', 0, '9.39.60.233');
+INSERT INTO Users (id, username, first_name, last_name, email, registration_date, is_deleted, ip_address) OVERRIDING SYSTEM VALUE VALUES (17, 'hinneybiggest', 'SUSAN', 'GARCIA', 'amartabali@dps.centrin.net.id', TIMESTAMP '2001-06-04 00:40:02', 0, '24.147.195.22');
+INSERT INTO Users (id, username, first_name, last_name, email, registration_date, is_deleted, ip_address) OVERRIDING SYSTEM VALUE VALUES (18, 'admincuttle', 'MARGARET', 'RODRIGUEZ', 'baliminimalist@yahoo.com', TIMESTAMP '2023-02-27 17:27:57', 0, '110.112.182.73');
+INSERT INTO Users (id, username, first_name, last_name, email, registration_date, is_deleted, ip_address) OVERRIDING SYSTEM VALUE VALUES (19, 'cagedegyptian', 'DOROTHY', 'MARTINEZ', 'adhidharma@denpasar.wasantara.net.id', TIMESTAMP '2008-06-03 22:21:42', 0, '228.44.241.182');
+INSERT INTO Users (id, username, first_name, last_name, email, registration_date, is_deleted, ip_address) OVERRIDING SYSTEM VALUE VALUES (20, 'filknotation', 'LISA', 'WILSON', 'centralreservation@ramayanahotel.com', TIMESTAMP '2011-04-07 04:09:27', 0, '168.68.45.62');
+INSERT INTO Users (id, username, first_name, last_name, email, registration_date, is_deleted, ip_address) OVERRIDING SYSTEM VALUE VALUES (21, 'corruptpizz', 'NANCY', 'YOUNG', 'apribadi@balimandira.com', TIMESTAMP '2003-02-09 11:02:31', 1, '121.34.206.203');
+INSERT INTO Users (id, username, first_name, last_name, email, registration_date, is_deleted, ip_address) OVERRIDING SYSTEM VALUE VALUES (22, 'buildingdeltoid', 'KAREN', 'ANDERSON', 'cdagenhart@ifc.org', TIMESTAMP '2007-07-15 19:33:55', 0, '174.22.35.245');
+INSERT INTO Users (id, username, first_name, last_name, email, registration_date, is_deleted, ip_address) OVERRIDING SYSTEM VALUE VALUES (23, 'whiningdelay', 'BETTY', 'TAYLOR', 'dana_supriyanto@interconti.com', TIMESTAMP '2012-06-18 23:11:24', 0, '249.109.98.206');
+INSERT INTO Users (id, username, first_name, last_name, email, registration_date, is_deleted, ip_address) OVERRIDING SYSTEM VALUE VALUES (24, 'studentdroopy', 'HELEN', 'HERNANDEZ', 'dos@novotelbali.com', TIMESTAMP '2010-11-14 16:03:23', 0, '75.221.109.65');
+INSERT INTO Users (id, username, first_name, last_name, email, registration_date, is_deleted, ip_address) OVERRIDING SYSTEM VALUE VALUES (25, 'electfarty', 'SANDRA', 'MOORE', 'daniel@hotelpadma.com', TIMESTAMP '2013-03-01 22:59:24', 0, '211.102.105.71');
+INSERT INTO Users (id, username, first_name, last_name, email, registration_date, is_deleted, ip_address) OVERRIDING SYSTEM VALUE VALUES (26, 'bashsassafras', 'DONNA', 'MARTIN', 'daniel@balibless.com', TIMESTAMP '2022-12-21 13:05:54', 0, '128.252.225.27');
+INSERT INTO Users (id, username, first_name, last_name, email, registration_date, is_deleted, ip_address) OVERRIDING SYSTEM VALUE VALUES (27, 'virtuecoxcomb', 'CAROL', 'JACKSON', 'djoko_p@jayakartahotelsresorts.com', TIMESTAMP '2024-04-24 09:17:39', 0, '126.68.240.204');
+INSERT INTO Users (id, username, first_name, last_name, email, registration_date, is_deleted, ip_address) OVERRIDING SYSTEM VALUE VALUES (28, 'unfriendlyfurther', 'RUTH', 'THOMPSON', 'expdepot@indosat.net.id', TIMESTAMP '2002-01-27 15:07:18', 0, '6.72.34.16');
+INSERT INTO Users (id, username, first_name, last_name, email, registration_date, is_deleted, ip_address) OVERRIDING SYSTEM VALUE VALUES (29, 'bindbawdy', 'SHARON', 'WHITE', 'feby.adamsyah@idn.xerox.com', TIMESTAMP '2017-02-14 07:48:14', 0, '192.157.20.222');
+INSERT INTO Users (id, username, first_name, last_name, email, registration_date, is_deleted, ip_address) OVERRIDING SYSTEM VALUE VALUES (30, 'warmbloodproclaim', 'MICHELLE', 'LOPEZ', 'christian_rizal@interconti.com', TIMESTAMP '2013-12-26 22:58:31', 0, '183.153.209.90');
+INSERT INTO Users (id, username, first_name, last_name, email, registration_date, is_deleted, ip_address) OVERRIDING SYSTEM VALUE VALUES (31, 'skirltremendous', 'LAURA', 'LEE', 'singgih93@mailcity.com', TIMESTAMP '2008-05-26 06:52:45', 1, '4.241.133.22');
+INSERT INTO Users (id, username, first_name, last_name, email, registration_date, is_deleted, ip_address) OVERRIDING SYSTEM VALUE VALUES (32, 'evolvingimportant', 'SARAH', 'GONZALEZ', 'idonk_gebhoy@yahoo.com', TIMESTAMP '2025-09-07 10:03:06', 0, '223.175.227.173');
+INSERT INTO Users (id, username, first_name, last_name, email, registration_date, is_deleted, ip_address) OVERRIDING SYSTEM VALUE VALUES (33, 'sinceregrand', 'KIMBERLY', 'HARRIS', 'info@houseofbali.com', TIMESTAMP '2016-05-10 00:01:31', 1, '168.89.155.169');
+INSERT INTO Users (id, username, first_name, last_name, email, registration_date, is_deleted, ip_address) OVERRIDING SYSTEM VALUE VALUES (34, 'swingbark', 'DEBORAH', 'CLARK', 'kyohana@toureast.net', TIMESTAMP '2023-12-17 13:29:20', 0, '149.7.102.160');
+INSERT INTO Users (id, username, first_name, last_name, email, registration_date, is_deleted, ip_address) OVERRIDING SYSTEM VALUE VALUES (35, 'countrydecay', 'JESSICA', 'LEWIS', 'sales@nusaduahotel.com', TIMESTAMP '2015-09-26 00:21:56', 0, '77.171.140.222');
+INSERT INTO Users (id, username, first_name, last_name, email, registration_date, is_deleted, ip_address) OVERRIDING SYSTEM VALUE VALUES (36, 'denyofficial', 'SHIRLEY', 'ROBINSON', 'jayakarta@mataram.wasantara.net.id', TIMESTAMP '2021-01-27 05:22:03', 0, '97.251.110.7');
+INSERT INTO Users (id, username, first_name, last_name, email, registration_date, is_deleted, ip_address) OVERRIDING SYSTEM VALUE VALUES (37, 'inguinalself', 'CYNTHIA', 'WALKER', 'mapindo@indo.net.id', TIMESTAMP '2018-09-15 09:02:58', 0, '255.111.250.207');
+INSERT INTO Users (id, username, first_name, last_name, email, registration_date, is_deleted, ip_address) OVERRIDING SYSTEM VALUE VALUES (38, 'leakingpity', 'ANGELA', 'PEREZ', 'anekabeach@dps.centrin.net.id', TIMESTAMP '2008-01-25 17:26:41', 0, '113.238.74.11');
+INSERT INTO Users (id, username, first_name, last_name, email, registration_date, is_deleted, ip_address) OVERRIDING SYSTEM VALUE VALUES (39, 'brooklyndecent', 'MELISSA', 'HALL', 'sm@ramayanahotel.com', TIMESTAMP '2013-12-04 15:38:36', 0, '160.49.15.18');
+INSERT INTO Users (id, username, first_name, last_name, email, registration_date, is_deleted, ip_address) OVERRIDING SYSTEM VALUE VALUES (40, 'slushyinflate', 'BRENDA', 'YOUNG', 'yogya@jayakartahotelsresorts.com', TIMESTAMP '2006-09-17 13:21:51', 0, '156.197.106.224');
+INSERT INTO Users (id, username, first_name, last_name, email, registration_date, is_deleted, ip_address) OVERRIDING SYSTEM VALUE VALUES (41, 'hamtemple', 'AMY', 'ALLEN', 'garudawisatajaya@indo.net.id', TIMESTAMP '2007-11-05 09:45:14', 0, '93.236.115.232');
+INSERT INTO Users (id, username, first_name, last_name, email, registration_date, is_deleted, ip_address) OVERRIDING SYSTEM VALUE VALUES (42, 'posteriorflowery', 'ANNA', 'SANCHEZ', 'ketut@kbatur.com', TIMESTAMP '2001-01-26 10:42:39', 1, '105.26.72.120');
+INSERT INTO Users (id, username, first_name, last_name, email, registration_date, is_deleted, ip_address) OVERRIDING SYSTEM VALUE VALUES (43, 'bullockssip', 'REBECCA', 'WRIGHT', 'bondps@bonansatours.com', TIMESTAMP '2011-10-30 23:38:40', 0, '209.112.96.8');
+INSERT INTO Users (id, username, first_name, last_name, email, registration_date, is_deleted, ip_address) OVERRIDING SYSTEM VALUE VALUES (44, 'ofliving', 'VIRGINIA', 'KING', 'witamgr@dps.centrin.net.id', TIMESTAMP '2020-09-17 02:58:24', 1, '39.114.238.223');
+INSERT INTO Users (id, username, first_name, last_name, email, registration_date, is_deleted, ip_address) OVERRIDING SYSTEM VALUE VALUES (45, 'rateweed', 'VIRGINIA', 'GREEN', 'dtedja@indosat.net.id', TIMESTAMP '2020-10-26 15:59:40', 0, '50.121.24.180');
+INSERT INTO Users (id, username, first_name, last_name, email, registration_date, is_deleted, ip_address) OVERRIDING SYSTEM VALUE VALUES (46, 'advisersspry', 'MARTHA', 'BAKER', 'info@stpbali.ac.id', TIMESTAMP '2002-11-08 07:34:33', 1, '100.97.183.157');
+INSERT INTO Users (id, username, first_name, last_name, email, registration_date, is_deleted, ip_address) OVERRIDING SYSTEM VALUE VALUES (47, 'fixedbucking', 'AMANDA', 'ADAMS', 'baliprestigeho@dps.centrin.net.id', TIMESTAMP '2015-08-30 15:00:25', 0, '138.206.25.177');
+INSERT INTO Users (id, username, first_name, last_name, email, registration_date, is_deleted, ip_address) OVERRIDING SYSTEM VALUE VALUES (48, 'karateperihelion', 'CHRISTINE', 'NELSON', 'pamilu@mas-travel.com', TIMESTAMP '2021-01-07 10:46:47', 0, '153.41.84.164');
+INSERT INTO Users (id, username, first_name, last_name, email, registration_date, is_deleted, ip_address) OVERRIDING SYSTEM VALUE VALUES (49, 'unchinmole', 'MARIE', 'BAILEY', 'amandabl@indosat.net.id', TIMESTAMP '2021-11-16 10:56:58', 0, '209.229.25.96');
+INSERT INTO Users (id, username, first_name, last_name, email, registration_date, is_deleted, ip_address) OVERRIDING SYSTEM VALUE VALUES (50, 'obliquepoof', 'JANET', 'HILL', 'marketing@csdwholiday.com', TIMESTAMP '2007-01-25 05:33:38', 1, '44.128.204.194');
+INSERT INTO Users (id, username, first_name, last_name, email, registration_date, is_deleted, ip_address) OVERRIDING SYSTEM VALUE VALUES (51, 'halleycurved', 'CATHERINE', 'BELL', 'luha89@yahoo.com', TIMESTAMP '2010-03-09 13:12:16', 0, '43.31.8.134');
+INSERT INTO Users (id, username, first_name, last_name, email, registration_date, is_deleted, ip_address) OVERRIDING SYSTEM VALUE VALUES (52, 'loosenoise', 'FRANCES', 'RAMIREZ', 'indahsuluh2002@yahoo.com.sg', TIMESTAMP '2003-12-14 13:37:37', 0, '215.129.178.110');
+INSERT INTO Users (id, username, first_name, last_name, email, registration_date, is_deleted, ip_address) OVERRIDING SYSTEM VALUE VALUES (53, 'ionoriole', 'ANN', 'CAMPBELL', 'imz1991@yahoo.com', TIMESTAMP '2023-04-15 19:44:32', 0, '82.95.233.223');
+INSERT INTO Users (id, username, first_name, last_name, email, registration_date, is_deleted, ip_address) OVERRIDING SYSTEM VALUE VALUES (54, 'gluttonousraspberry', 'JOYCE', 'MITCHELL', 'gus_war81@yahoo.com', TIMESTAMP '2004-01-29 02:55:31', 0, '205.7.240.1');
+INSERT INTO Users (id, username, first_name, last_name, email, registration_date, is_deleted, ip_address) OVERRIDING SYSTEM VALUE VALUES (55, 'darwinquotient', 'DIANE', 'MURPHY', 'kf034@indosat.net.id', TIMESTAMP '2008-08-25 23:49:12', 0, '145.94.245.251');
+INSERT INTO Users (id, username, first_name, last_name, email, registration_date, is_deleted, ip_address) OVERRIDING SYSTEM VALUE VALUES (56, 'yikeshydrostatic', 'ALICE', 'RIVERA', '800produkwil@posindonesia.co.id', TIMESTAMP '2021-05-31 21:40:50', 1, '148.248.198.121');
+INSERT INTO Users (id, username, first_name, last_name, email, registration_date, is_deleted, ip_address) OVERRIDING SYSTEM VALUE VALUES (57, 'wagtailspicy', 'JULIE', 'MURPHY', 'kontak.synergi@yahoo.com', TIMESTAMP '2017-12-04 08:07:53', 0, '97.238.94.44');
+INSERT INTO Users (id, username, first_name, last_name, email, registration_date, is_deleted, ip_address) OVERRIDING SYSTEM VALUE VALUES (58, 'neutralgazump', 'HEATHER', 'ROBERTS', 'oekaoeka@yahoo.com', TIMESTAMP '2013-03-14 23:03:20', 0, '142.119.249.171');
+INSERT INTO Users (id, username, first_name, last_name, email, registration_date, is_deleted, ip_address) OVERRIDING SYSTEM VALUE VALUES (59, 'shodepee', 'TERESA', 'ALLEN', 'fitrianti@hotmail.com', TIMESTAMP '2021-03-15 16:23:49', 0, '253.85.166.88');
+INSERT INTO Users (id, username, first_name, last_name, email, registration_date, is_deleted, ip_address) OVERRIDING SYSTEM VALUE VALUES (60, 'diagramsadagio', 'DORIS', 'SANCHEZ', 'h4ntoro@yahoo.com', TIMESTAMP '2014-06-03 19:10:11', 0, '177.180.236.61');
+INSERT INTO Users (id, username, first_name, last_name, email, registration_date, is_deleted, ip_address) OVERRIDING SYSTEM VALUE VALUES (61, 'baleremuda', 'EVELYN', 'CARTER', 'novi_enbe@yahoo.com', TIMESTAMP '2024-09-14 16:50:34', 0, '36.145.229.182');
+INSERT INTO Users (id, username, first_name, last_name, email, registration_date, is_deleted, ip_address) OVERRIDING SYSTEM VALUE VALUES (62, 'crowncrackers', 'GLORIA', 'PHILLIPS', 'dila_dewata@yahoo.co.id', TIMESTAMP '2024-04-05 19:24:45', 0, '99.218.95.154');
+INSERT INTO Users (id, username, first_name, last_name, email, registration_date, is_deleted, ip_address) OVERRIDING SYSTEM VALUE VALUES (63, 'potterssnarky', 'CHERYL', 'EVANS', 'tiena_asfary@yahoo.co.id', TIMESTAMP '2018-06-17 15:39:24', 1, '129.74.12.234');
+INSERT INTO Users (id, username, first_name, last_name, email, registration_date, is_deleted, ip_address) OVERRIDING SYSTEM VALUE VALUES (64, 'hurdlesurmise', 'MILDRED', 'TURNER', 'da_lawoffice@yahoo.com', TIMESTAMP '2011-02-12 06:26:48', 0, '81.91.116.195');
+INSERT INTO Users (id, username, first_name, last_name, email, registration_date, is_deleted, ip_address) OVERRIDING SYSTEM VALUE VALUES (65, 'premiumseal', 'KATHERINE', 'TORRES', 'rini@ncsecurities.biz', TIMESTAMP '2010-02-16 14:08:22', 0, '226.176.107.50');
+INSERT INTO Users (id, username, first_name, last_name, email, registration_date, is_deleted, ip_address) OVERRIDING SYSTEM VALUE VALUES (66, 'printerstencils', 'JOAN', 'PARKER', 'sudarnoto_hakim@yahoo.com', TIMESTAMP '2023-04-16 04:09:12', 0, '66.198.191.174');
+INSERT INTO Users (id, username, first_name, last_name, email, registration_date, is_deleted, ip_address) OVERRIDING SYSTEM VALUE VALUES (67, 'citiesgrill', 'ASHLEY', 'COLLINS', 'wastioke@yahoo.com', TIMESTAMP '2023-04-10 21:40:08', 0, '69.48.171.4');
+INSERT INTO Users (id, username, first_name, last_name, email, registration_date, is_deleted, ip_address) OVERRIDING SYSTEM VALUE VALUES (68, 'presidentsbasal', 'JUDITH', 'EDWARDS', 'lia_kiara97@yahoo.com', TIMESTAMP '2015-02-17 02:04:57', 0, '243.30.11.69');
+INSERT INTO Users (id, username, first_name, last_name, email, registration_date, is_deleted, ip_address) OVERRIDING SYSTEM VALUE VALUES (69, 'skippingside', 'ROSE', 'MORRIS', 'b_astuti@telkomsel.co.id', TIMESTAMP '2017-11-26 14:58:04', 0, '88.28.151.138');
+INSERT INTO Users (id, username, first_name, last_name, email, registration_date, is_deleted, ip_address) OVERRIDING SYSTEM VALUE VALUES (70, 'terrifymarzipan', 'JANICE', 'RIVERA', 'grfurniture@yahoo.com', TIMESTAMP '2022-02-11 20:57:15', 1, '136.208.113.14');
+INSERT INTO Users (id, username, first_name, last_name, email, registration_date, is_deleted, ip_address) OVERRIDING SYSTEM VALUE VALUES (71, 'rotoriginally', 'KELLY', 'ROGERS', 'gosyen2000@hotmail.com', TIMESTAMP '2005-07-16 13:47:18', 1, '146.141.16.116'); 
 
-INSERT INTO UsersGames (Id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE 
-VALUES 
-(1, 137, 31, 1, 71, CAST('2024-01-14 01:00:00' AS TIMESTAMP(3)), 6122.0000),
-(2, 95, 12, 4, 30, CAST('2024-01-14 02:00:00' AS TIMESTAMP(3)), 5485.0000),
-(3, 102, 34, 4, 76, CAST('2024-01-14 03:00:00' AS TIMESTAMP(3)), 7033.0000),
-(4, 7, 57, 5, 26, CAST('2024-01-14 04:00:00' AS TIMESTAMP(3)), 7513.0000),
-(5, 20, 40, 1, 23, CAST('2024-01-14 05:00:00' AS TIMESTAMP(3)), 8353.0000),
-(6, 25, 23, 3, 89, CAST('2024-01-14 06:00:00' AS TIMESTAMP(3)), 6984.0000),
-(7, 68, 11, 8, 89, CAST('2024-01-14 07:00:00' AS TIMESTAMP(3)), 7623.0000),
-(8, 44, 50, 4, 32, CAST('2024-01-14 08:00:00' AS TIMESTAMP(3)), 6074.0000),
-(9, 232, 66, 12, 82, CAST('2024-01-14 09:00:00' AS TIMESTAMP(3)), 6303.0000),
-(10, 56, 1, 11, 67, CAST('2024-01-14 10:00:00' AS TIMESTAMP(3)), 5826.0000),
-(11, 122, 55, 3, 20, CAST('2024-01-14 11:00:00' AS TIMESTAMP(3)), 7831.0000),
-(12, 230, 71, 8, 78, CAST('2024-01-14 12:00:00' AS TIMESTAMP(3)), 7288.0000),
-(13, 98, 66, 11, 26, CAST('2024-01-14 13:00:00' AS TIMESTAMP(3)), 7732.0000),
-(14, 189, 11, 12, 48, CAST('2024-01-14 14:00:00' AS TIMESTAMP(3)), 6505.0000),
-(15, 24, 4, 1, 55, CAST('2024-01-14 15:00:00' AS TIMESTAMP(3)), 7582.0000),
-(16, 122, 54, 2, 57, CAST('2024-01-14 16:00:00' AS TIMESTAMP(3)), 5515.0000),
-(17, 221, 34, 4, 49, CAST('2024-01-14 17:00:00' AS TIMESTAMP(3)), 8416.0000),
-(18, 169, 16, 9, 77, CAST('2024-01-14 18:00:00' AS TIMESTAMP(3)), 7430.0000),
-(19, 104, 20, 6, 63, CAST('2024-01-14 19:00:00' AS TIMESTAMP(3)), 8445.0000),
-(20, 100, 50, 8, 12, CAST('2024-01-14 20:00:00' AS TIMESTAMP(3)), 7839.0000),
-(21, 115, 46, 6, 52, CAST('2024-01-14 21:00:00' AS TIMESTAMP(3)), 6402.0000),
-(22, 110, 36, 12, 52, CAST('2024-01-14 22:00:00' AS TIMESTAMP(3)), 4518.0000),
-(23, 125, 6, 11, 53, CAST('2024-01-14 23:00:00' AS TIMESTAMP(3)), 7326.0000),
-(24, 116, 16, 4, 55, CAST('2024-01-15 00:00:00' AS TIMESTAMP(3)), 9144.0000),
-(25, 211, 41, 8, 73, CAST('2024-01-15 01:00:00' AS TIMESTAMP(3)), 7417.0000),
-(26, 212, 61, 3, 38, CAST('2024-01-15 02:00:00' AS TIMESTAMP(3)), 8022.0000),
-(27, 33, 19, 3, 57, CAST('2024-01-15 03:00:00' AS TIMESTAMP(3)), 8726.0000),
-(28, 175, 67, 4, 70, CAST('2024-01-15 04:00:00' AS TIMESTAMP(3)), 8008.0000),
-(29, 125, 22, 9, 35, CAST('2024-01-15 05:00:00' AS TIMESTAMP(3)), 7411.0000),
-(30, 203, 29, 7, 33, CAST('2024-01-15 06:00:00' AS TIMESTAMP(3)), 7266.0000),
-(31, 133, 2, 1, 10, CAST('2024-01-15 07:00:00' AS TIMESTAMP(3)), 7506.0000),
-(32, 59, 58, 11, 98, CAST('2024-01-15 08:00:00' AS TIMESTAMP(3)), 9369.0000),
-(33, 138, 18, 7, 83, CAST('2024-01-15 09:00:00' AS TIMESTAMP(3)), 6730.0000),
-(34, 30, 29, 10, 19, CAST('2024-01-15 10:00:00' AS TIMESTAMP(3)), 8575.0000),
-(35, 235, 20, 5, 62, CAST('2024-01-15 11:00:00' AS TIMESTAMP(3)), 7734.0000),
-(36, 71, 69, 9, 60, CAST('2024-01-15 12:00:00' AS TIMESTAMP(3)), 6423.0000),
-(37, 220, 32, 11, 43, CAST('2024-01-15 13:00:00' AS TIMESTAMP(3)), 6970.0000),
-(38, 153, 1, 6, 20, CAST('2024-01-15 14:00:00' AS TIMESTAMP(3)), 6699.0000),
-(39, 205, 63, 8, 69, CAST('2024-01-15 15:00:00' AS TIMESTAMP(3)), 7573.0000),
-(40, 238, 65, 4, 47, CAST('2024-01-15 16:00:00' AS TIMESTAMP(3)), 6412.0000),
-(41, 144, 41, 2, 42, CAST('2024-01-15 17:00:00' AS TIMESTAMP(3)), 6031.0000),
-(42, 181, 54, 5, 50, CAST('2024-01-15 18:00:00' AS TIMESTAMP(3)), 7490.0000),
-(43, 196, 67, 1, 74, CAST('2024-01-15 19:00:00' AS TIMESTAMP(3)), 8249.0000),
-(44, 21, 66, 1, 35, CAST('2024-01-15 20:00:00' AS TIMESTAMP(3)), 7719.0000),
-(45, 90, 2, 2, 81, CAST('2024-01-15 21:00:00' AS TIMESTAMP(3)), 8862.0000),
-(46, 153, 42, 7, 45, CAST('2024-01-15 22:00:00' AS TIMESTAMP(3)), 7762.0000),
-(47, 12, 70, 1, 22, CAST('2024-01-15 23:00:00' AS TIMESTAMP(3)), 8781.0000),
-(48, 154, 10, 9, 63, CAST('2024-01-16 00:00:00' AS TIMESTAMP(3)), 7950.0000),
-(49, 186, 54, 10, 14, CAST('2024-01-16 01:00:00' AS TIMESTAMP(3)), 7421.0000),
-(50, 205, 37, 1, 9, CAST('2024-01-16 02:00:00' AS TIMESTAMP(3)), 5176.0000),
-(51, 237, 30, 3, 44, CAST('2024-01-16 03:00:00' AS TIMESTAMP(3)), 7680.0000),
-(52, 153, 64, 7, 30, CAST('2024-01-16 04:00:00' AS TIMESTAMP(3)), 8675.0000),
-(53, 223, 28, 11, 38, CAST('2024-01-16 05:00:00' AS TIMESTAMP(3)), 6221.0000),
-(54, 224, 16, 10, 54, CAST('2024-01-16 06:00:00' AS TIMESTAMP(3)), 6152.0000),
-(55, 113, 33, 7, 15, CAST('2024-01-16 07:00:00' AS TIMESTAMP(3)), 7605.0000),
-(56, 155, 71, 3, 94, CAST('2024-01-16 08:00:00' AS TIMESTAMP(3)), 5370.0000),
-(57, 50, 35, 7, 81, CAST('2024-01-16 09:00:00' AS TIMESTAMP(3)), 6169.0000),
-(58, 79, 50, 11, 58, CAST('2024-01-16 10:00:00' AS TIMESTAMP(3)), 5536.0000),
-(59, 127, 45, 1, 50, CAST('2024-01-16 11:00:00' AS TIMESTAMP(3)), 6260.0000),
-(60, 186, 40, 10, 22, CAST('2024-01-16 12:00:00' AS TIMESTAMP(3)), 8379.0000),
-(61, 83, 71, 3, 21, CAST('2024-01-16 13:00:00' AS TIMESTAMP(3)), 5615.0000),
-(62, 54, 56, 1, 21, CAST('2024-01-16 14:00:00' AS TIMESTAMP(3)), 7497.0000),
-(63, 26, 5, 5, 97, CAST('2024-01-16 15:00:00' AS TIMESTAMP(3)), 7199.0000),
-(64, 217, 17, 3, 41, CAST('2024-01-16 16:00:00' AS TIMESTAMP(3)), 2019.0000),
-(65, 161, 47, 5, 73, CAST('2024-01-16 17:00:00' AS TIMESTAMP(3)), 8360.0000),
-(66, 211, 69, 6, 97, CAST('2024-01-16 18:00:00' AS TIMESTAMP(3)), 7726.0000),
-(67, 218, 62, 9, 60, CAST('2024-01-16 19:00:00' AS TIMESTAMP(3)), 5961.0000),
-(68, 101, 26, 1, 42, CAST('2024-01-16 20:00:00' AS TIMESTAMP(3)), 5975.0000),
-(69, 129, 17, 3, 94, CAST('2024-01-16 21:00:00' AS TIMESTAMP(3)), 5513.0000),
-(70, 25, 40, 6, 18, CAST('2024-01-16 22:00:00' AS TIMESTAMP(3)), 4233.0000),
-(71, 68, 10, 3, 14, CAST('2024-01-16 23:00:00' AS TIMESTAMP(3)), 7240.0000),
-(72, 31, 21, 12, 59, CAST('2024-01-17 00:00:00' AS TIMESTAMP(3)), 5802.0000),
-(73, 77, 63, 8, 5, CAST('2024-01-17 01:00:00' AS TIMESTAMP(3)), 7692.0000),
-(74, 213, 8, 10, 11, CAST('2024-01-17 02:00:00' AS TIMESTAMP(3)), 7094.0000),
-(75, 203, 61, 1, 83, CAST('2024-01-17 03:00:00' AS TIMESTAMP(3)), 8177.0000),
-(76, 171, 32, 4, 43, CAST('2024-01-17 04:00:00' AS TIMESTAMP(3)), 8260.0000),
-(77, 113, 20, 1, 65, CAST('2024-01-17 05:00:00' AS TIMESTAMP(3)), 7670.0000),
-(78, 35, 45, 2, 9, CAST('2024-01-17 06:00:00' AS TIMESTAMP(3)), 5458.0000),
-(79, 40, 60, 1, 22, CAST('2024-01-17 07:00:00' AS TIMESTAMP(3)), 8822.0000),
-(80, 239, 8, 7, 45, CAST('2024-01-17 08:00:00' AS TIMESTAMP(3)), 6337.0000),
-(81, 234, 63, 9, 2, CAST('2024-01-17 09:00:00' AS TIMESTAMP(3)), 5578.0000),
-(82, 32, 48, 6, 61, CAST('2024-01-17 10:00:00' AS TIMESTAMP(3)), 7048.0000),
-(83, 118, 8, 7, 89, CAST('2024-01-17 11:00:00' AS TIMESTAMP(3)), 7668.0000),
-(84, 35, 59, 3, 70, CAST('2024-01-17 12:00:00' AS TIMESTAMP(3)), 5608.0000),
-(85, 122, 29, 1, 45, CAST('2024-01-17 13:00:00' AS TIMESTAMP(3)), 6959.0000),
-(86, 28, 25, 8, 8, CAST('2024-01-17 14:00:00' AS TIMESTAMP(3)), 8461.0000),
-(87, 210, 47, 4, 26, CAST('2024-01-17 15:00:00' AS TIMESTAMP(3)), 7468.0000),
-(88, 95, 67, 12, 16, CAST('2024-01-17 16:00:00' AS TIMESTAMP(3)), 8486.0000),
-(89, 64, 63, 8, 53, CAST('2024-01-17 17:00:00' AS TIMESTAMP(3)), 6573.0000),
-(90, 119, 46, 9, 45, CAST('2024-01-17 18:00:00' AS TIMESTAMP(3)), 6449.0000),
-(91, 51, 34, 3, 52, CAST('2024-01-17 19:00:00' AS TIMESTAMP(3)), 5639.0000),
-(92, 105, 57, 2, 14, CAST('2024-01-17 20:00:00' AS TIMESTAMP(3)), 9147.0000),
-(93, 19, 33, 2, 42, CAST('2024-01-17 21:00:00' AS TIMESTAMP(3)), 6651.0000),
-(94, 232, 54, 4, 46, CAST('2024-01-17 22:00:00' AS TIMESTAMP(3)), 7646.0000),
-(95, 81, 12, 6, 13, CAST('2024-01-17 23:00:00' AS TIMESTAMP(3)), 7787.0000),
-(96, 179, 38, 12, 61, CAST('2024-01-18 00:00:00' AS TIMESTAMP(3)), 6043.0000),
-(97, 71, 69, 12, 30, CAST('2024-01-18 01:00:00' AS TIMESTAMP(3)), 2512.0000),
-(98, 49, 14, 10, 66, CAST('2024-01-18 02:00:00' AS TIMESTAMP(3)), 6772.0000),
-(99, 204, 11, 5, 74, CAST('2024-01-18 03:00:00' AS TIMESTAMP(3)), 6976.0000),
-(100, 192, 65, 6, 32, CAST('2024-01-18 04:00:00' AS TIMESTAMP(3)), 6714.0000),
-(101, 164, 32, 1, 94, CAST('2024-01-18 05:00:00' AS TIMESTAMP(3)), 6869.0000),
-(102, 90, 68, 7, 87, CAST('2024-01-18 06:00:00' AS TIMESTAMP(3)), 6475.0000),
-(103, 112, 66, 4, 68, CAST('2024-01-18 07:00:00' AS TIMESTAMP(3)), 6257.0000),
-(104, 137, 65, 9, 82, CAST('2024-01-18 08:00:00' AS TIMESTAMP(3)), 7513.0000),
-(105, 72, 71, 12, 22, CAST('2024-01-18 09:00:00' AS TIMESTAMP(3)), 8020.0000),
-(106, 50, 6, 7, 29, CAST('2024-01-18 10:00:00' AS TIMESTAMP(3)), 6766.0000),
-(107, 180, 2, 5, 92, CAST('2024-01-18 11:00:00' AS TIMESTAMP(3)), 7348.0000),
-(108, 226, 42, 8, 93, CAST('2024-01-18 12:00:00' AS TIMESTAMP(3)), 7958.0000),
-(109, 139, 58, 10, 7, CAST('2024-01-18 13:00:00' AS TIMESTAMP(3)), 7313.0000),
-(110, 87, 9, 4, 61, CAST('2024-01-18 14:00:00' AS TIMESTAMP(3)), 6266.0000),
-(111, 20, 6, 11, 71, CAST('2024-01-18 15:00:00' AS TIMESTAMP(3)), 7682.0000),
-(112, 68, 40, 5, 46, CAST('2024-01-18 16:00:00' AS TIMESTAMP(3)), 7818.0000),
-(113, 90, 52, 8, 84, CAST('2024-01-18 17:00:00' AS TIMESTAMP(3)), 7828.0000),
-(114, 98, 35, 12, 60, CAST('2024-01-18 18:00:00' AS TIMESTAMP(3)), 7288.0000),
-(115, 212, 52, 6, 83, CAST('2024-01-18 19:00:00' AS TIMESTAMP(3)), 7314.0000),
-(116, 100, 27, 5, 30, CAST('2024-01-18 20:00:00' AS TIMESTAMP(3)), 9159.0000),
-(117, 8, 63, 10, 89, CAST('2024-01-18 21:00:00' AS TIMESTAMP(3)), 7220.0000),
-(118, 32, 59, 1, 56, CAST('2024-01-18 22:00:00' AS TIMESTAMP(3)), 8328.0000),
-(119, 170, 19, 2, 32, CAST('2024-01-18 23:00:00' AS TIMESTAMP(3)), 8063.0000),
-(120, 67, 5, 5, 30, CAST('2024-01-19 00:00:00' AS TIMESTAMP(3)), 8301.0000),
-(121, 214, 63, 4, 42, CAST('2024-01-19 01:00:00' AS TIMESTAMP(3)), 8012.0000),
-(122, 101, 12, 3, 51, CAST('2024-01-19 02:00:00' AS TIMESTAMP(3)), 4736.0000),
-(123, 161, 10, 10, 98, CAST('2024-01-19 03:00:00' AS TIMESTAMP(3)), 9405.0000),
-(124, 235, 3, 3, 37, CAST('2024-01-19 04:00:00' AS TIMESTAMP(3)), 5833.0000),
-(125, 231, 31, 5, 8, CAST('2024-01-19 05:00:00' AS TIMESTAMP(3)), 6782.0000),
-(126, 83, 3, 1, 98, CAST('2024-01-19 06:00:00' AS TIMESTAMP(3)), 7301.0000),
-(127, 139, 15, 12, 40, CAST('2024-01-19 07:00:00' AS TIMESTAMP(3)), 9331.0000),
-(128, 122, 40, 2, 92, CAST('2024-01-19 08:00:00' AS TIMESTAMP(3)), 8975.0000),
-(129, 119, 14, 3, 27, CAST('2024-01-19 09:00:00' AS TIMESTAMP(3)), 7693.0000),
-(130, 207, 64, 2, 77, CAST('2024-01-19 10:00:00' AS TIMESTAMP(3)), 6973.0000),
-(131, 218, 67, 2, 97, CAST('2024-01-19 11:00:00' AS TIMESTAMP(3)), 5653.0000),
-(132, 107, 24, 8, 37, CAST('2024-01-19 12:00:00' AS TIMESTAMP(3)), 9269.0000),
-(133, 235, 35, 12, 24, CAST('2024-01-19 13:00:00' AS TIMESTAMP(3)), 5274.0000),
-(134, 100, 11, 2, 12, CAST('2024-01-19 14:00:00' AS TIMESTAMP(3)), 8659.0000),
-(135, 1, 53, 2, 86, CAST('2024-01-19 15:00:00' AS TIMESTAMP(3)), 7013.0000),
-(136, 220, 27, 10, 15, CAST('2024-01-19 16:00:00' AS TIMESTAMP(3)), 7372.0000),
-(137, 31, 66, 3, 13, CAST('2024-01-19 17:00:00' AS TIMESTAMP(3)), 7114.0000),
-(138, 126, 6, 9, 38, CAST('2024-01-19 18:00:00' AS TIMESTAMP(3)), 7104.0000),
-(139, 167, 44, 5, 17, CAST('2024-01-19 19:00:00' AS TIMESTAMP(3)), 6216.0000),
-(140, 197, 41, 6, 91, CAST('2024-01-19 20:00:00' AS TIMESTAMP(3)), 5208.0000),
-(141, 12, 58, 6, 66, CAST('2024-01-19 21:00:00' AS TIMESTAMP(3)), 8240.0000),
-(142, 98, 69, 8, 83, CAST('2024-01-19 22:00:00' AS TIMESTAMP(3)), 8643.0000),
-(143, 205, 39, 11, 40, CAST('2024-01-19 23:00:00' AS TIMESTAMP(3)), 7992.0000),
-(144, 206, 36, 6, 21, CAST('2024-01-20 00:00:00' AS TIMESTAMP(3)), 8014.0000),
-(145, 9, 20, 4, 41, CAST('2024-01-20 01:00:00' AS TIMESTAMP(3)), 7709.0000),
-(146, 212, 37, 1, 17, CAST('2024-01-20 02:00:00' AS TIMESTAMP(3)), 6184.0000),
-(147, 59, 6, 12, 65, CAST('2024-01-20 03:00:00' AS TIMESTAMP(3)), 6428.0000),
-(148, 126, 17, 2, 93, CAST('2024-01-20 04:00:00' AS TIMESTAMP(3)), 5068.0000),
-(149, 119, 65, 10, 38, CAST('2024-01-20 05:00:00' AS TIMESTAMP(3)), 7207.0000),
-(150, 77, 64, 6, 32, CAST('2024-01-20 06:00:00' AS TIMESTAMP(3)), 6806.0000),
-(151, 187, 64, 10, 82, CAST('2024-01-20 07:00:00' AS TIMESTAMP(3)), 7480.0000),
-(152, 49, 23, 10, 13, CAST('2024-01-20 08:00:00' AS TIMESTAMP(3)), 8585.0000),
-(153, 54, 71, 5, 68, CAST('2024-01-20 09:00:00' AS TIMESTAMP(3)), 8036.0000),
-(154, 164, 65, 10, 49, CAST('2024-01-20 10:00:00' AS TIMESTAMP(3)), 8581.0000),
-(155, 79, 36, 11, 58, CAST('2024-01-20 11:00:00' AS TIMESTAMP(3)), 7972.0000),
-(156, 221, 66, 5, 6, CAST('2024-01-20 12:00:00' AS TIMESTAMP(3)), 8815.0000),
-(157, 214, 68, 11, 3, CAST('2024-01-20 13:00:00' AS TIMESTAMP(3)), 8587.0000),
-(158, 2, 50, 9, 9, CAST('2024-01-20 14:00:00' AS TIMESTAMP(3)), 8421.0000),
-(159, 201, 62, 1, 61, CAST('2024-01-20 15:00:00' AS TIMESTAMP(3)), 6765.0000),
-(160, 148, 24, 12, 87, CAST('2024-01-20 16:00:00' AS TIMESTAMP(3)), 6246.0000),
-(161, 17, 65, 8, 23, CAST('2024-01-20 17:00:00' AS TIMESTAMP(3)), 6921.0000),
-(162, 202, 30, 10, 77, CAST('2024-01-20 18:00:00' AS TIMESTAMP(3)), 7663.0000),
-(163, 11, 20, 6, 31, CAST('2024-01-20 19:00:00' AS TIMESTAMP(3)), 6293.0000),
-(164, 190, 39, 5, 55, CAST('2024-01-20 20:00:00' AS TIMESTAMP(3)), 8607.0000),
-(165, 196, 52, 5, 73, CAST('2024-01-20 21:00:00' AS TIMESTAMP(3)), 6775.0000),
-(166, 209, 2, 11, 29, CAST('2024-01-20 22:00:00' AS TIMESTAMP(3)), 7079.0000),
-(167, 4, 11, 10, 19, CAST('2024-01-20 23:00:00' AS TIMESTAMP(3)), 7108.0000),
-(168, 192, 40, 9, 13, CAST('2024-01-21 00:00:00' AS TIMESTAMP(3)), 7927.0000),
-(169, 69, 38, 4, 54, CAST('2024-01-21 01:00:00' AS TIMESTAMP(3)), 6520.0000),
-(170, 119, 36, 5, 86, CAST('2024-01-21 02:00:00' AS TIMESTAMP(3)), 8089.0000),
-(171, 69, 2, 12, 10, CAST('2024-01-21 03:00:00' AS TIMESTAMP(3)), 6461.0000),
-(172, 35, 31, 11, 64, CAST('2024-01-21 04:00:00' AS TIMESTAMP(3)), 3357.0000),
-(173, 208, 53, 10, 79, CAST('2024-01-21 05:00:00' AS TIMESTAMP(3)), 6646.0000),
-(174, 137, 44, 10, 45, CAST('2024-01-21 06:00:00' AS TIMESTAMP(3)), 6205.0000),
-(175, 120, 70, 10, 29, CAST('2024-01-21 07:00:00' AS TIMESTAMP(3)), 4076.0000),
-(176, 139, 16, 12, 46, CAST('2024-01-21 08:00:00' AS TIMESTAMP(3)), 6668.0000),
-(177, 212, 22, 3, 42, CAST('2024-01-21 09:00:00' AS TIMESTAMP(3)), 6465.0000),
-(178, 154, 30, 4, 16, CAST('2024-01-21 10:00:00' AS TIMESTAMP(3)), 7493.0000),
-(179, 168, 44, 3, 27, CAST('2024-01-21 11:00:00' AS TIMESTAMP(3)), 8026.0000),
-(180, 33, 46, 1, 64, CAST('2024-01-21 12:00:00' AS TIMESTAMP(3)), 7131.0000),
-(181, 178, 37, 7, 49, CAST('2024-01-21 13:00:00' AS TIMESTAMP(3)), 6942.0000),
-(182, 123, 21, 1, 84, CAST('2024-01-21 14:00:00' AS TIMESTAMP(3)), 7750.0000),
-(183, 139, 15, 7, 34, CAST('2024-01-21 15:00:00' AS TIMESTAMP(3)), 4570.0000),
-(184, 190, 57, 3, 11, CAST('2024-01-21 16:00:00' AS TIMESTAMP(3)), 6866.0000),
-(185, 68, 17, 6, 55, CAST('2024-01-21 17:00:00' AS TIMESTAMP(3)), 7231.0000),
-(186, 19, 19, 11, 76, CAST('2024-01-21 18:00:00' AS TIMESTAMP(3)), 5408.0000),
-(187, 59, 66, 6, 56, CAST('2024-01-21 19:00:00' AS TIMESTAMP(3)), 4017.0000),
-(188, 16, 70, 1, 81, CAST('2024-01-21 20:00:00' AS TIMESTAMP(3)), 7181.0000),
-(189, 98, 53, 7, 19, CAST('2024-01-21 21:00:00' AS TIMESTAMP(3)), 8695.0000),
-(190, 63, 45, 7, 89, CAST('2024-01-21 22:00:00' AS TIMESTAMP(3)), 5384.0000),
-(191, 203, 42, 2, 65, CAST('2024-01-21 23:00:00' AS TIMESTAMP(3)), 4048.0000),
-(192, 14, 50, 4, 99, CAST('2024-01-22 00:00:00' AS TIMESTAMP(3)), 7527.0000),
-(193, 18, 71, 7, 62, CAST('2024-01-22 01:00:00' AS TIMESTAMP(3)), 7622.0000),
-(194, 111, 26, 3, 70, CAST('2024-01-22 02:00:00' AS TIMESTAMP(3)), 7373.0000),
-(195, 79, 21, 10, 14, CAST('2024-01-22 03:00:00' AS TIMESTAMP(3)), 6279.0000),
-(196, 48, 34, 3, 42, CAST('2024-01-22 04:00:00' AS TIMESTAMP(3)), 5515.0000),
-(197, 232, 28, 6, 84, CAST('2024-01-22 05:00:00' AS TIMESTAMP(3)), 2934.0000),
-(198, 148, 44, 1, 97, CAST('2024-01-22 06:00:00' AS TIMESTAMP(3)), 6762.0000),
-(199, 223, 3, 4, 89, CAST('2024-01-22 07:00:00' AS TIMESTAMP(3)), 7206.0000),
-(200, 101, 48, 11, 10, CAST('2024-01-22 08:00:00' AS TIMESTAMP(3)), 4377.0000),
-(201, 189, 25, 2, 52, CAST('2024-01-22 09:00:00' AS TIMESTAMP(3)), 7758.0000),
-(202, 59, 27, 10, 88, CAST('2024-01-22 10:00:00' AS TIMESTAMP(3)), 7220.0000),
-(203, 108, 6, 12, 9, CAST('2024-01-22 11:00:00' AS TIMESTAMP(3)), 8402.0000),
-(204, 127, 16, 10, 42, CAST('2024-01-22 12:00:00' AS TIMESTAMP(3)), 7838.0000),
-(205, 203, 33, 7, 73, CAST('2024-01-22 13:00:00' AS TIMESTAMP(3)), 6426.0000),
-(206, 8, 64, 4, 52, CAST('2024-01-22 14:00:00' AS TIMESTAMP(3)), 7871.0000),
-(207, 213, 23, 9, 68, CAST('2024-01-22 15:00:00' AS TIMESTAMP(3)), 7206.0000),
-(208, 228, 44, 7, 54, CAST('2024-01-22 16:00:00' AS TIMESTAMP(3)), 4775.0000),
-(209, 35, 22, 12, 15, CAST('2024-01-22 17:00:00' AS TIMESTAMP(3)), 7097.0000),
-(210, 214, 61, 11, 19, CAST('2024-01-22 18:00:00' AS TIMESTAMP(3)), 7548.0000),
-(211, 226, 25, 2, 6, CAST('2024-01-22 19:00:00' AS TIMESTAMP(3)), 9021.0000),
-(212, 159, 5, 6, 1, CAST('2024-01-22 20:00:00' AS TIMESTAMP(3)), 7462.0000),
-(213, 51, 51, 2, 92, CAST('2024-01-22 21:00:00' AS TIMESTAMP(3)), 7266.0000),
-(214, 181, 60, 9, 11, CAST('2024-01-22 22:00:00' AS TIMESTAMP(3)), 7189.0000),
-(215, 98, 35, 11, 23, CAST('2024-01-22 23:00:00' AS TIMESTAMP(3)), 4673.0000),
-(216, 171, 49, 5, 68, CAST('2024-01-23 00:00:00' AS TIMESTAMP(3)), 8195.0000),
-(217, 67, 30, 3, 44, CAST('2024-01-23 01:00:00' AS TIMESTAMP(3)), 8389.0000),
-(218, 12, 6, 7, 93, CAST('2024-01-23 02:00:00' AS TIMESTAMP(3)), 6844.0000),
-(219, 238, 38, 3, 55, CAST('2024-01-23 03:00:00' AS TIMESTAMP(3)), 9209.0000),
-(220, 65, 21, 9, 55, CAST('2024-01-23 04:00:00' AS TIMESTAMP(3)), 7043.0000),
-(221, 124, 29, 4, 28, CAST('2024-01-23 05:00:00' AS TIMESTAMP(3)), 7014.0000),
-(222, 181, 63, 9, 5, CAST('2024-01-23 06:00:00' AS TIMESTAMP(3)), 6131.0000),
-(223, 125, 42, 5, 43, CAST('2024-01-23 07:00:00' AS TIMESTAMP(3)), 4637.0000),
-(224, 90, 9, 5, 17, CAST('2024-01-23 08:00:00' AS TIMESTAMP(3)), 8417.0000),
-(225, 112, 41, 3, 77, CAST('2024-01-23 09:00:00' AS TIMESTAMP(3)), 9541.0000),
-(226, 1, 8, 1, 82, CAST('2024-01-23 10:00:00' AS TIMESTAMP(3)), 6959.0000),
-(227, 33, 21, 11, 94, CAST('2024-01-23 11:00:00' AS TIMESTAMP(3)), 8100.0000),
-(228, 232, 71, 8, 67, CAST('2024-01-23 12:00:00' AS TIMESTAMP(3)), 5927.0000),
-(229, 54, 64, 12, 90, CAST('2024-01-23 13:00:00' AS TIMESTAMP(3)), 7733.0000),
-(230, 21, 43, 2, 33, CAST('2024-01-23 14:00:00' AS TIMESTAMP(3)), 6335.0000),
-(231, 214, 22, 9, 61, CAST('2024-01-23 15:00:00' AS TIMESTAMP(3)), 8120.0000),
-(232, 108, 40, 1, 73, CAST('2024-01-23 16:00:00' AS TIMESTAMP(3)), 6690.0000),
-(233, 154, 13, 8, 13, CAST('2024-01-23 17:00:00' AS TIMESTAMP(3)), 6414.0000),
-(234, 125, 70, 5, 99, CAST('2024-01-23 18:00:00' AS TIMESTAMP(3)), 4825.0000),
-(235, 221, 5, 2, 30, CAST('2024-01-23 19:00:00' AS TIMESTAMP(3)), 7659.0000),
-(236, 141, 5, 1, 1, CAST('2024-01-23 20:00:00' AS TIMESTAMP(3)), 7680.0000),
-(237, 121, 37, 6, 10, CAST('2024-01-23 21:00:00' AS TIMESTAMP(3)), 6364.0000),
-(238, 221, 21, 4, 39, CAST('2024-01-23 22:00:00' AS TIMESTAMP(3)), 7099.0000),
-(239, 93, 68, 7, 79, CAST('2024-01-23 23:00:00' AS TIMESTAMP(3)), 8551.0000),
-(240, 15, 71, 9, 34, CAST('2024-01-24 00:00:00' AS TIMESTAMP(3)), 6034.0000),
-(241, 58, 18, 9, 5, CAST('2024-01-24 01:00:00' AS TIMESTAMP(3)), 5238.0000),
-(242, 50, 69, 12, 52, CAST('2024-01-24 02:00:00' AS TIMESTAMP(3)), 5571.0000),
-(243, 95, 32, 9, 70, CAST('2024-01-24 03:00:00' AS TIMESTAMP(3)), 5743.0000),
-(244, 168, 43, 1, 46, CAST('2024-01-24 04:00:00' AS TIMESTAMP(3)), 7104.0000),
-(245, 200, 15, 1, 70, CAST('2024-01-24 05:00:00' AS TIMESTAMP(3)), 7548.0000),
-(246, 169, 15, 12, 57, CAST('2024-01-24 06:00:00' AS TIMESTAMP(3)), 6976.0000),
-(247, 192, 14, 7, 24, CAST('2024-01-24 07:00:00' AS TIMESTAMP(3)), 7170.0000),
-(248, 151, 44, 3, 26, CAST('2024-01-24 08:00:00' AS TIMESTAMP(3)), 7202.0000),
-(249, 182, 54, 7, 8, CAST('2024-01-24 09:00:00' AS TIMESTAMP(3)), 7373.0000),
-(250, 79, 52, 9, 32, CAST('2024-01-24 10:00:00' AS TIMESTAMP(3)), 7163.0000),
-(251, 10, 56, 5, 81, CAST('2024-01-24 11:00:00' AS TIMESTAMP(3)), 8285.0000),
-(252, 122, 15, 4, 12, CAST('2024-01-24 12:00:00' AS TIMESTAMP(3)), 5706.0000),
-(253, 151, 69, 3, 22, CAST('2024-01-24 13:00:00' AS TIMESTAMP(3)), 7155.0000),
-(254, 124, 54, 6, 76, CAST('2024-01-24 14:00:00' AS TIMESTAMP(3)), 5918.0000),
-(255, 162, 27, 9, 13, CAST('2024-01-24 15:00:00' AS TIMESTAMP(3)), 5237.0000),
-(256, 177, 4, 11, 25, CAST('2024-01-24 16:00:00' AS TIMESTAMP(3)), 5731.0000),
-(257, 23, 61, 12, 15, CAST('2024-01-24 17:00:00' AS TIMESTAMP(3)), 7866.0000),
-(258, 7, 25, 6, 29, CAST('2024-01-24 18:00:00' AS TIMESTAMP(3)), 7477.0000),
-(259, 157, 45, 5, 48, CAST('2024-01-24 19:00:00' AS TIMESTAMP(3)), 8822.0000),
-(260, 194, 30, 4, 81, CAST('2024-01-24 20:00:00' AS TIMESTAMP(3)), 7181.0000),
-(261, 23, 6, 7, 95, CAST('2024-01-24 21:00:00' AS TIMESTAMP(3)), 5531.0000),
-(262, 207, 19, 7, 89, CAST('2024-01-24 22:00:00' AS TIMESTAMP(3)), 4710.0000),
-(263, 129, 6, 2, 36, CAST('2024-01-24 23:00:00' AS TIMESTAMP(3)), 7118.0000),
-(264, 240, 66, 4, 98, CAST('2024-01-25 00:00:00' AS TIMESTAMP(3)), 7640.0000),
-(265, 75, 46, 7, 3, CAST('2024-01-25 01:00:00' AS TIMESTAMP(3)), 5927.0000),
-(266, 197, 11, 1, 53, CAST('2024-01-25 02:00:00' AS TIMESTAMP(3)), 7513.0000),
-(267, 148, 67, 9, 17, CAST('2024-01-25 03:00:00' AS TIMESTAMP(3)), 6916.0000),
-(268, 141, 30, 12, 49, CAST('2024-01-25 04:00:00' AS TIMESTAMP(3)), 8714.0000),
-(269, 45, 37, 9, 59, CAST('2024-01-25 05:00:00' AS TIMESTAMP(3)), 7763.0000),
-(270, 55, 45, 9, 92, CAST('2024-01-25 06:00:00' AS TIMESTAMP(3)), 7672.0000),
-(271, 46, 10, 12, 40, CAST('2024-01-25 07:00:00' AS TIMESTAMP(3)), 6133.0000),
-(272, 60, 45, 10, 85, CAST('2024-01-25 08:00:00' AS TIMESTAMP(3)), 8280.0000),
-(273, 229, 67, 9, 74, CAST('2024-01-25 09:00:00' AS TIMESTAMP(3)), 6275.0000),
-(274, 181, 50, 11, 86, CAST('2024-01-25 10:00:00' AS TIMESTAMP(3)), 8519.0000),
-(275, 132, 47, 4, 72, CAST('2024-01-25 11:00:00' AS TIMESTAMP(3)), 6158.0000),
-(276, 181, 55, 4, 10, CAST('2024-01-25 12:00:00' AS TIMESTAMP(3)), 7868.0000),
-(277, 151, 34, 1, 95, CAST('2024-01-25 13:00:00' AS TIMESTAMP(3)), 7800.0000),
-(278, 182, 18, 5, 94, CAST('2024-01-25 14:00:00' AS TIMESTAMP(3)), 7984.0000),
-(279, 40, 53, 11, 39, CAST('2024-01-25 15:00:00' AS TIMESTAMP(3)), 7305.0000),
-(280, 144, 6, 10, 50, CAST('2024-01-25 16:00:00' AS TIMESTAMP(3)), 9490.0000),
-(281, 118, 61, 2, 41, CAST('2024-01-25 17:00:00' AS TIMESTAMP(3)), 6481.0000),
-(282, 81, 66, 4, 16, CAST('2024-01-25 18:00:00' AS TIMESTAMP(3)), 5740.0000),
-(283, 21, 4, 11, 26, CAST('2024-01-25 19:00:00' AS TIMESTAMP(3)), 7594.0000),
-(284, 181, 50, 3, 33, CAST('2024-01-25 20:00:00' AS TIMESTAMP(3)), 6295.0000),
-(285, 2, 49, 10, 54, CAST('2024-01-25 21:00:00' AS TIMESTAMP(3)), 8699.0000),
-(286, 238, 20, 11, 95, CAST('2024-01-25 22:00:00' AS TIMESTAMP(3)), 8428.0000),
-(287, 145, 29, 12, 73, CAST('2024-01-25 23:00:00' AS TIMESTAMP(3)), 6890.0000),
-(288, 129, 39, 8, 7, CAST('2024-01-26 00:00:00' AS TIMESTAMP(3)), 5835.0000),
-(289, 151, 52, 5, 40, CAST('2024-01-26 01:00:00' AS TIMESTAMP(3)), 8152.0000),
-(290, 53, 19, 4, 13, CAST('2024-01-26 02:00:00' AS TIMESTAMP(3)), 7520.0000),
-(291, 147, 45, 1, 99, CAST('2024-01-26 03:00:00' AS TIMESTAMP(3)), 7499.0000),
-(292, 23, 2, 2, 75, CAST('2024-01-26 04:00:00' AS TIMESTAMP(3)), 5010.0000),
-(293, 157, 71, 5, 4, CAST('2024-01-26 05:00:00' AS TIMESTAMP(3)), 6424.0000),
-(294, 188, 24, 5, 14, CAST('2024-01-26 06:00:00' AS TIMESTAMP(3)), 6758.0000),
-(295, 164, 8, 6, 38, CAST('2024-01-26 07:00:00' AS TIMESTAMP(3)), 4837.0000),
-(296, 212, 12, 9, 86, CAST('2024-01-26 08:00:00' AS TIMESTAMP(3)), 7560.0000),
-(297, 105, 54, 7, 38, CAST('2024-01-26 09:00:00' AS TIMESTAMP(3)), 8720.0000),
-(298, 198, 10, 4, 29, CAST('2024-01-26 10:00:00' AS TIMESTAMP(3)), 5465.0000),
-(299, 163, 3, 9, 28, CAST('2024-01-26 11:00:00' AS TIMESTAMP(3)), 6478.0000),
-(300, 166, 17, 7, 39, CAST('2024-01-26 12:00:00' AS TIMESTAMP(3)), 6461.0000),
-(301, 128, 24, 6, 8, CAST('2024-01-26 13:00:00' AS TIMESTAMP(3)), 7811.0000),
-(302, 237, 1, 2, 22, CAST('2024-01-26 14:00:00' AS TIMESTAMP(3)), 7396.0000),
-(303, 159, 12, 7, 68, CAST('2024-01-26 15:00:00' AS TIMESTAMP(3)), 8706.0000),
-(304, 225, 71, 8, 25, CAST('2024-01-26 16:00:00' AS TIMESTAMP(3)), 7772.0000),
-(305, 24, 18, 4, 71, CAST('2024-01-26 17:00:00' AS TIMESTAMP(3)), 9257.0000),
-(306, 114, 60, 7, 62, CAST('2024-01-26 18:00:00' AS TIMESTAMP(3)), 7947.0000),
-(307, 26, 18, 9, 90, CAST('2024-01-26 19:00:00' AS TIMESTAMP(3)), 8807.0000),
-(308, 116, 9, 9, 10, CAST('2024-01-26 20:00:00' AS TIMESTAMP(3)), 6179.0000),
-(309, 143, 15, 12, 41, CAST('2024-01-26 21:00:00' AS TIMESTAMP(3)), 8558.0000),
-(310, 37, 39, 1, 2, CAST('2024-01-26 22:00:00' AS TIMESTAMP(3)), 5403.0000),
-(311, 220, 43, 3, 40, CAST('2024-01-26 23:00:00' AS TIMESTAMP(3)), 8098.0000),
-(312, 170, 11, 10, 6, CAST('2024-01-27 00:00:00' AS TIMESTAMP(3)), 7614.0000),
-(313, 233, 22, 1, 64, CAST('2024-01-27 01:00:00' AS TIMESTAMP(3)), 6480.0000),
-(314, 138, 70, 4, 35, CAST('2024-01-27 02:00:00' AS TIMESTAMP(3)), 8130.0000),
-(315, 56, 53, 4, 71, CAST('2024-01-27 03:00:00' AS TIMESTAMP(3)), 6754.0000),
-(316, 127, 9, 6, 71, CAST('2024-01-27 04:00:00' AS TIMESTAMP(3)), 5547.0000),
-(317, 98, 7, 9, 1, CAST('2024-01-27 05:00:00' AS TIMESTAMP(3)), 5473.0000),
-(318, 150, 28, 2, 44, CAST('2024-01-27 06:00:00' AS TIMESTAMP(3)), 4300.0000),
-(319, 117, 3, 12, 35, CAST('2024-01-27 07:00:00' AS TIMESTAMP(3)), 8552.0000),
- (320, 120, 42, 9, 42, CAST('2024-01-27 08:00:00' AS TIMESTAMP(3)), 6398.0000),
-(321, 202, 62, 3, 59, CAST('2024-01-27 09:00:00' AS TIMESTAMP(3)), 5240.0000),
-(322, 151, 38, 12, 60, CAST('2024-01-27 10:00:00' AS TIMESTAMP(3)), 8202.0000),
-(323, 10, 28, 12, 43, CAST('2024-01-27 11:00:00' AS TIMESTAMP(3)), 8119.0000),
-(324, 122, 9, 1, 16, CAST('2024-01-27 12:00:00' AS TIMESTAMP(3)), 5832.0000);
 
+
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (1, 137, 31, 1, 71, TIMESTAMP '2012-08-09 06:38:33', 6122.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (2, 95, 12, 4, 30, TIMESTAMP '2018-01-08 15:49:49', 5485.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (3, 102, 34, 4, 76, TIMESTAMP '2023-10-21 20:22:21', 7033.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (4, 7, 57, 5, 26, TIMESTAMP '2014-10-10 05:06:40', 7513.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (5, 20, 40, 1, 23, TIMESTAMP '2012-10-08 18:48:32', 8353.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (6, 25, 23, 3, 89, TIMESTAMP '2024-01-14 00:09:38', 6984.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (7, 68, 11, 8, 89, TIMESTAMP '2002-11-01 05:07:43', 7623.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (8, 44, 50, 4, 32, TIMESTAMP '2010-11-25 13:24:59', 6074.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (9, 232, 66, 12, 82, TIMESTAMP '2001-10-12 13:29:45', 6303.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (10, 56, 1, 11, 67, TIMESTAMP '2015-09-30 08:57:03', 5826.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (11, 122, 55, 3, 20, TIMESTAMP '2008-01-22 12:09:07', 7831.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (12, 230, 71, 8, 78, TIMESTAMP '2007-09-26 16:31:55', 7288.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (13, 98, 66, 11, 26, TIMESTAMP '2011-09-26 15:45:32', 7732.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (14, 189, 11, 12, 48, TIMESTAMP '2021-08-02 04:05:17', 6505.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (15, 24, 4, 1, 55, TIMESTAMP '2020-05-19 17:34:06', 7582.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (16, 122, 54, 2, 57, TIMESTAMP '2017-03-01 21:20:03', 5515.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (17, 221, 34, 4, 49, TIMESTAMP '2025-12-31 08:06:48', 8416.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (18, 169, 16, 9, 77, TIMESTAMP '2023-08-29 22:05:09', 7430.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (19, 104, 20, 6, 63, TIMESTAMP '2004-07-25 06:58:37', 8445.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (20, 100, 50, 8, 12, TIMESTAMP '2004-01-22 10:26:15', 7839.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (21, 115, 46, 6, 52, TIMESTAMP '2013-03-20 10:43:38', 6402.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (22, 110, 36, 12, 52, TIMESTAMP '2013-06-26 02:57:03', 4518.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (23, 125, 6, 11, 53, TIMESTAMP '2014-06-23 18:59:48', 7326.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (24, 116, 16, 4, 55, TIMESTAMP '2014-01-22 19:53:57', 9144.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (25, 211, 41, 8, 73, TIMESTAMP '2001-12-09 23:45:06', 7417.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (26, 212, 61, 3, 38, TIMESTAMP '2011-03-08 20:34:49', 8022.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (27, 33, 19, 3, 57, TIMESTAMP '2003-03-05 07:36:24', 8726.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (28, 175, 67, 4, 70, TIMESTAMP '2005-07-17 19:52:28', 8008.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (29, 125, 22, 9, 35, TIMESTAMP '2019-10-25 13:29:43', 7411.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (30, 203, 29, 7, 33, TIMESTAMP '2016-12-11 01:02:01', 7266.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (31, 133, 2, 1, 10, TIMESTAMP '2023-06-30 07:21:50', 7506.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (32, 59, 58, 11, 98, TIMESTAMP '2020-07-01 22:15:54', 9369.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (33, 138, 18, 7, 83, TIMESTAMP '2019-02-14 20:12:54', 6730.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (34, 30, 29, 10, 19, TIMESTAMP '2010-04-26 20:08:05', 8575.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (35, 235, 20, 5, 62, TIMESTAMP '2020-05-07 18:00:17', 7734.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (36, 71, 69, 9, 60, TIMESTAMP '2014-12-21 10:07:46', 6423.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (37, 220, 32, 11, 43, TIMESTAMP '2001-03-04 05:28:34', 6970.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (38, 153, 1, 6, 20, TIMESTAMP '2024-08-01 13:50:41', 6699.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (39, 205, 63, 8, 69, TIMESTAMP '2016-01-28 12:19:20', 7573.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (40, 238, 65, 4, 47, TIMESTAMP '2010-11-17 18:56:17', 6412.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (41, 144, 41, 2, 42, TIMESTAMP '2007-12-12 20:02:42', 6031.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (42, 181, 54, 5, 50, TIMESTAMP '2016-01-13 06:52:45', 7490.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (43, 196, 67, 1, 74, TIMESTAMP '2010-04-07 23:14:32', 8249.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (44, 21, 66, 1, 35, TIMESTAMP '2014-02-18 21:48:36', 7719.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (45, 90, 2, 2, 81, TIMESTAMP '2025-04-02 06:05:03', 8862.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (46, 153, 42, 7, 45, TIMESTAMP '2008-01-03 21:13:10', 7762.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (47, 12, 70, 1, 22, TIMESTAMP '2019-01-26 14:48:42', 8781.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (48, 154, 10, 9, 63, TIMESTAMP '2014-09-22 10:03:03', 7950.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (49, 186, 54, 10, 14, TIMESTAMP '2012-06-03 07:40:15', 7421.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (50, 205, 37, 1, 9, TIMESTAMP '2005-11-24 08:01:51', 5176.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (51, 237, 30, 3, 44, TIMESTAMP '2006-10-20 21:56:40', 7680.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (52, 153, 64, 7, 30, TIMESTAMP '2021-01-24 11:23:26', 8675.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (53, 223, 28, 11, 38, TIMESTAMP '2016-02-12 20:29:53', 6221.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (54, 224, 16, 10, 54, TIMESTAMP '2002-07-21 01:22:28', 6152.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (55, 113, 33, 7, 15, TIMESTAMP '2020-07-29 06:45:07', 7605.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (56, 155, 71, 3, 94, TIMESTAMP '2015-07-26 11:32:48', 5370.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (57, 50, 35, 7, 81, TIMESTAMP '2011-04-11 13:01:57', 6169.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (58, 79, 50, 11, 58, TIMESTAMP '2016-10-01 17:35:02', 5536.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (59, 127, 45, 1, 50, TIMESTAMP '2017-05-19 15:24:17', 6260.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (60, 186, 40, 10, 22, TIMESTAMP '2005-02-21 18:59:00', 8379.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (61, 83, 71, 3, 21, TIMESTAMP '2011-08-14 03:33:24', 5615.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (62, 54, 56, 1, 21, TIMESTAMP '2005-07-29 12:58:26', 7497.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (63, 26, 5, 5, 97, TIMESTAMP '2019-11-14 00:28:22', 7199.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (64, 217, 17, 3, 41, TIMESTAMP '2014-04-16 02:30:43', 2019.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (65, 161, 47, 5, 73, TIMESTAMP '2020-02-22 10:58:33', 8360.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (66, 211, 69, 6, 97, TIMESTAMP '2006-04-27 00:13:13', 7726.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (67, 218, 62, 9, 60, TIMESTAMP '2005-07-17 04:13:46', 5961.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (68, 101, 26, 1, 42, TIMESTAMP '2015-10-24 01:09:46', 5975.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (69, 129, 17, 3, 94, TIMESTAMP '2002-03-07 00:52:03', 5513.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (70, 25, 40, 6, 18, TIMESTAMP '2022-05-01 00:16:07', 4233.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (71, 68, 10, 3, 14, TIMESTAMP '2005-06-14 18:11:52', 7240.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (72, 31, 21, 12, 59, TIMESTAMP '2008-04-04 14:03:52', 5802.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (73, 77, 63, 8, 5, TIMESTAMP '2010-09-04 21:45:21', 7692.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (74, 213, 8, 10, 11, TIMESTAMP '2002-04-22 16:52:49', 7094.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (75, 203, 61, 1, 83, TIMESTAMP '2018-04-26 20:01:12', 8177.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (76, 171, 32, 4, 43, TIMESTAMP '2021-10-31 03:37:54', 8260.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (77, 113, 20, 1, 65, TIMESTAMP '2012-01-14 11:02:10', 7670.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (78, 35, 45, 2, 9, TIMESTAMP '2005-03-31 23:17:24', 5458.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (79, 40, 60, 1, 22, TIMESTAMP '2023-05-31 15:14:58', 8822.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (80, 239, 8, 7, 45, TIMESTAMP '2025-08-02 13:52:02', 6337.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (81, 234, 63, 9, 2, TIMESTAMP '2002-10-27 13:33:00', 5578.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (82, 32, 48, 6, 61, TIMESTAMP '2024-12-23 22:09:12', 7048.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (83, 118, 8, 7, 89, TIMESTAMP '2015-10-21 00:56:36', 7668.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (84, 35, 59, 3, 70, TIMESTAMP '2000-08-12 23:14:03', 5608.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (85, 122, 29, 1, 45, TIMESTAMP '2017-04-20 14:47:13', 6959.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (86, 28, 25, 8, 8, TIMESTAMP '2018-07-04 20:25:50', 8461.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (87, 210, 47, 4, 26, TIMESTAMP '2005-05-26 12:40:52', 7468.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (88, 95, 67, 12, 16, TIMESTAMP '2013-11-09 23:24:03', 8486.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (89, 64, 63, 8, 53, TIMESTAMP '2023-12-01 06:12:47', 6573.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (90, 119, 46, 9, 45, TIMESTAMP '2014-02-09 03:49:58', 6449.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (91, 51, 34, 3, 52, TIMESTAMP '2000-06-04 18:40:28', 5639.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (92, 105, 57, 2, 14, TIMESTAMP '2013-04-07 01:24:33', 9147.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (93, 19, 33, 2, 42, TIMESTAMP '2025-07-04 06:50:34', 6651.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (94, 232, 54, 4, 46, TIMESTAMP '2015-03-07 01:56:26', 7646.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (95, 81, 12, 6, 13, TIMESTAMP '2001-10-30 20:03:49', 7787.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (96, 179, 38, 12, 61, TIMESTAMP '2014-06-09 13:50:00', 6043.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (97, 71, 69, 12, 30, TIMESTAMP '2004-01-30 10:57:04', 2512.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (98, 49, 14, 10, 66, TIMESTAMP '2024-10-28 23:43:40', 6772.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (99, 204, 11, 5, 74, TIMESTAMP '2017-05-03 13:23:49', 6976.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (100, 192, 65, 6, 32, TIMESTAMP '2004-09-05 15:18:44', 6714.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (101, 164, 32, 1, 94, TIMESTAMP '2004-11-25 07:32:14', 6869.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (102, 90, 68, 7, 87, TIMESTAMP '2015-02-04 06:26:18', 6475.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (103, 112, 66, 4, 68, TIMESTAMP '2001-11-05 09:34:14', 6257.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (104, 137, 65, 9, 82, TIMESTAMP '2002-10-31 07:36:42', 7513.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (105, 72, 71, 12, 22, TIMESTAMP '2022-01-09 16:14:08', 8020.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (106, 50, 6, 7, 29, TIMESTAMP '2011-05-20 12:22:26', 6766.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (107, 180, 2, 5, 92, TIMESTAMP '2003-11-01 21:57:47', 7348.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (108, 226, 42, 8, 93, TIMESTAMP '2006-04-23 16:32:27', 7958.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (109, 139, 58, 10, 7, TIMESTAMP '2006-09-19 18:30:23', 7313.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (110, 87, 9, 4, 61, TIMESTAMP '2023-11-02 12:32:17', 6266.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (111, 20, 6, 11, 71, TIMESTAMP '2002-07-17 22:16:53', 7682.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (112, 68, 40, 5, 46, TIMESTAMP '2005-07-16 23:47:25', 7818.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (113, 90, 52, 8, 84, TIMESTAMP '2003-04-03 10:17:45', 7828.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (114, 98, 35, 12, 60, TIMESTAMP '2001-09-28 01:27:56', 7288.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (115, 212, 52, 6, 83, TIMESTAMP '2020-04-18 22:20:28', 7314.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (116, 100, 27, 5, 30, TIMESTAMP '2023-11-21 10:56:22', 9159.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (117, 8, 63, 10, 89, TIMESTAMP '2014-10-29 17:52:34', 7220.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (118, 32, 59, 1, 56, TIMESTAMP '2002-09-08 00:52:24', 8328.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (119, 170, 19, 2, 32, TIMESTAMP '2012-06-24 12:33:43', 8063.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (120, 67, 5, 5, 30, TIMESTAMP '2023-05-03 09:11:53', 8301.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (121, 214, 63, 4, 42, TIMESTAMP '2011-02-06 14:58:09', 8012.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (122, 101, 12, 3, 51, TIMESTAMP '2024-09-01 15:55:20', 4736.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (123, 161, 10, 10, 98, TIMESTAMP '2002-07-05 19:04:33', 9405.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (124, 235, 3, 3, 37, TIMESTAMP '2018-06-20 07:14:42', 5833.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (125, 231, 31, 5, 8, TIMESTAMP '2018-04-17 02:42:01', 6782.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (126, 83, 3, 1, 98, TIMESTAMP '2024-08-07 18:19:03', 7301.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (127, 139, 15, 12, 40, TIMESTAMP '2015-12-10 03:26:42', 9331.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (128, 122, 40, 2, 92, TIMESTAMP '2022-03-02 13:44:07', 8975.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (129, 119, 14, 3, 27, TIMESTAMP '2021-11-04 20:25:22', 7693.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (130, 207, 64, 2, 77, TIMESTAMP '2017-03-23 14:35:23', 6973.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (131, 218, 67, 2, 97, TIMESTAMP '2000-10-23 10:43:48', 5653.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (132, 107, 24, 8, 37, TIMESTAMP '2013-01-26 19:10:18', 9269.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (133, 235, 35, 12, 24, TIMESTAMP '2009-07-29 18:15:29', 5274.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (134, 100, 11, 2, 12, TIMESTAMP '2019-07-10 16:55:56', 8659.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (135, 1, 53, 2, 86, TIMESTAMP '2012-08-23 17:30:51', 7013.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (136, 220, 27, 10, 15, TIMESTAMP '2019-06-29 09:10:12', 7372.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (137, 31, 66, 3, 13, TIMESTAMP '2020-09-08 03:45:27', 7114.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (138, 126, 6, 9, 38, TIMESTAMP '2014-08-04 12:35:55', 7104.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (139, 167, 44, 5, 17, TIMESTAMP '2003-10-24 07:39:23', 6216.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (140, 197, 41, 6, 91, TIMESTAMP '2019-05-09 09:42:35', 5208.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (141, 12, 58, 6, 66, TIMESTAMP '2009-07-23 01:53:17', 8240.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (142, 98, 69, 8, 83, TIMESTAMP '2024-11-06 19:32:33', 8643.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (143, 205, 39, 11, 40, TIMESTAMP '2004-07-30 04:43:13', 7992.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (144, 206, 36, 6, 21, TIMESTAMP '2024-12-05 06:12:22', 8014.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (145, 9, 20, 4, 41, TIMESTAMP '2012-10-28 15:05:14', 7709.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (146, 212, 37, 1, 17, TIMESTAMP '2001-03-12 04:01:32', 6184.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (147, 59, 6, 12, 65, TIMESTAMP '2020-05-01 20:34:59', 6428.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (148, 126, 17, 2, 93, TIMESTAMP '2021-07-02 04:43:59', 5068.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (149, 119, 65, 10, 38, TIMESTAMP '2022-11-17 06:20:04', 7207.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (150, 77, 64, 6, 32, TIMESTAMP '2001-02-27 10:41:16', 6806.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (151, 187, 64, 10, 82, TIMESTAMP '2016-12-26 22:07:30', 7480.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (152, 49, 23, 10, 13, TIMESTAMP '2011-02-25 09:16:00', 8585.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (153, 54, 71, 5, 68, TIMESTAMP '2008-10-30 09:12:45', 8036.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (154, 164, 65, 10, 49, TIMESTAMP '2009-02-17 21:57:25', 8581.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (155, 79, 36, 11, 58, TIMESTAMP '2018-11-26 17:46:41', 7972.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (156, 221, 66, 5, 6, TIMESTAMP '2005-01-02 11:52:24', 8815.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (157, 214, 68, 11, 3, TIMESTAMP '2018-03-06 13:17:59', 8587.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (158, 2, 50, 9, 9, TIMESTAMP '2016-02-12 00:36:21', 8421.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (159, 201, 62, 1, 61, TIMESTAMP '2025-02-21 22:38:52', 6765.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (160, 148, 24, 12, 87, TIMESTAMP '2024-07-26 21:13:10', 6246.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (161, 17, 65, 8, 23, TIMESTAMP '2015-05-24 22:22:29', 6921.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (162, 202, 30, 10, 77, TIMESTAMP '2025-03-04 18:21:59', 7663.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (163, 11, 20, 6, 31, TIMESTAMP '2025-05-30 17:06:31', 6293.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (164, 190, 39, 5, 55, TIMESTAMP '2013-02-22 04:56:02', 8607.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (165, 196, 52, 5, 73, TIMESTAMP '2005-12-18 09:47:09', 6775.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (166, 209, 2, 11, 29, TIMESTAMP '2009-05-13 15:30:24', 7079.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (167, 4, 11, 10, 19, TIMESTAMP '2012-08-07 06:31:13', 7108.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (168, 192, 40, 9, 13, TIMESTAMP '2022-05-01 05:21:27', 7927.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (169, 69, 38, 4, 54, TIMESTAMP '2015-08-29 00:43:12', 6520.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (170, 119, 36, 5, 86, TIMESTAMP '2022-09-06 18:48:42', 8089.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (171, 69, 2, 12, 10, TIMESTAMP '2007-02-13 10:18:41', 6461.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (172, 35, 31, 11, 64, TIMESTAMP '2022-11-05 10:15:53', 3357.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (173, 208, 53, 10, 79, TIMESTAMP '2016-08-17 17:25:22', 6646.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (174, 137, 44, 10, 45, TIMESTAMP '2019-04-14 08:30:38', 6205.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (175, 120, 70, 10, 29, TIMESTAMP '2025-04-21 20:28:51', 4076.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (176, 139, 16, 12, 46, TIMESTAMP '2011-02-17 13:24:52', 6668.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (177, 212, 22, 3, 42, TIMESTAMP '2018-03-24 22:20:28', 6465.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (178, 154, 30, 4, 16, TIMESTAMP '2022-08-27 09:13:51', 7493.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (179, 168, 44, 3, 27, TIMESTAMP '2000-10-13 04:02:54', 8026.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (180, 33, 46, 1, 64, TIMESTAMP '2018-05-06 23:30:52', 7131.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (181, 178, 37, 7, 49, TIMESTAMP '2015-10-03 15:03:50', 6942.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (182, 123, 21, 1, 84, TIMESTAMP '2017-05-29 07:32:53', 7750.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (183, 139, 15, 7, 34, TIMESTAMP '2003-12-07 03:17:59', 4570.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (184, 190, 57, 3, 11, TIMESTAMP '2012-08-15 01:41:20', 6866.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (185, 68, 17, 6, 55, TIMESTAMP '2004-12-24 18:48:15', 7231.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (186, 19, 19, 11, 76, TIMESTAMP '2002-09-01 09:33:42', 5408.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (187, 59, 66, 6, 56, TIMESTAMP '2004-01-20 13:12:59', 4017.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (188, 16, 70, 1, 81, TIMESTAMP '2016-07-29 09:51:17', 7181.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (189, 98, 53, 7, 19, TIMESTAMP '2018-07-04 12:45:39', 8695.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (190, 63, 45, 7, 89, TIMESTAMP '2000-06-06 12:24:34', 5384.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (191, 203, 42, 2, 65, TIMESTAMP '2017-09-11 07:10:47', 4048.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (192, 14, 50, 4, 99, TIMESTAMP '2000-01-07 22:57:18', 7527.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (193, 18, 71, 7, 62, TIMESTAMP '2017-09-15 15:48:28', 7622.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (194, 111, 26, 3, 70, TIMESTAMP '2001-04-14 17:17:16', 7373.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (195, 79, 21, 10, 14, TIMESTAMP '2024-05-30 00:48:03', 6279.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (196, 48, 34, 3, 42, TIMESTAMP '2012-03-29 07:51:45', 5515.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (197, 232, 28, 6, 84, TIMESTAMP '2005-12-05 05:33:30', 2934.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (198, 148, 44, 1, 97, TIMESTAMP '2010-01-27 16:02:23', 6762.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (199, 223, 3, 4, 89, TIMESTAMP '2006-10-20 11:47:50', 7206.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (200, 101, 48, 11, 10, TIMESTAMP '2004-12-28 07:46:36', 4377.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (201, 189, 25, 2, 52, TIMESTAMP '2008-05-29 05:14:30', 7758.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (202, 59, 27, 10, 88, TIMESTAMP '2004-04-01 19:56:15', 7220.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (203, 108, 6, 12, 9, TIMESTAMP '2025-10-31 01:13:11', 8402.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (204, 127, 16, 10, 42, TIMESTAMP '2019-11-06 19:13:25', 7838.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (205, 203, 33, 7, 73, TIMESTAMP '2016-12-09 06:42:06', 6426.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (206, 8, 64, 4, 52, TIMESTAMP '2021-11-11 23:45:39', 7871.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (207, 213, 23, 9, 68, TIMESTAMP '2001-02-22 05:20:00', 7206.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (208, 228, 44, 7, 54, TIMESTAMP '2012-02-07 14:53:00', 4775.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (209, 35, 22, 12, 15, TIMESTAMP '2025-06-13 15:59:40', 7097.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (210, 214, 61, 11, 19, TIMESTAMP '2025-07-03 18:41:50', 7548.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (211, 226, 25, 2, 6, TIMESTAMP '2002-01-06 21:32:18', 9021.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (212, 159, 5, 6, 1, TIMESTAMP '2010-04-07 13:59:51', 7462.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (213, 51, 51, 2, 92, TIMESTAMP '2025-03-23 01:17:29', 7266.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (214, 181, 60, 9, 11, TIMESTAMP '2003-05-25 13:51:16', 7189.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (215, 98, 35, 11, 23, TIMESTAMP '2003-03-31 22:00:13', 4673.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (216, 171, 49, 5, 68, TIMESTAMP '2006-08-20 22:14:26', 8195.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (217, 67, 30, 3, 44, TIMESTAMP '2016-11-23 19:14:46', 8389.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (218, 12, 6, 7, 93, TIMESTAMP '2025-08-29 03:57:17', 6844.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (219, 238, 38, 3, 55, TIMESTAMP '2013-06-24 13:35:12', 9209.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (220, 65, 21, 9, 55, TIMESTAMP '2010-08-10 14:18:23', 7043.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (221, 124, 29, 4, 28, TIMESTAMP '2015-02-17 18:55:54', 7014.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (222, 181, 63, 9, 5, TIMESTAMP '2020-07-20 09:34:53', 6131.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (223, 125, 42, 5, 43, TIMESTAMP '2011-03-28 12:14:30', 4637.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (224, 90, 9, 5, 17, TIMESTAMP '2008-09-14 01:33:26', 8417.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (225, 112, 41, 3, 77, TIMESTAMP '2020-03-08 04:40:22', 9541.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (226, 1, 8, 1, 82, TIMESTAMP '2012-06-11 07:47:10', 6959.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (227, 33, 21, 11, 94, TIMESTAMP '2007-01-10 13:08:27', 8100.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (228, 232, 71, 8, 67, TIMESTAMP '2009-12-11 19:55:55', 5927.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (229, 54, 64, 12, 90, TIMESTAMP '2022-07-05 14:20:19', 7733.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (230, 21, 43, 2, 33, TIMESTAMP '2023-07-01 04:19:00', 6335.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (231, 214, 22, 9, 61, TIMESTAMP '2005-11-27 01:08:31', 8120.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (232, 108, 40, 1, 73, TIMESTAMP '2008-06-28 10:20:11', 6690.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (233, 154, 13, 8, 13, TIMESTAMP '2001-09-19 05:53:57', 6414.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (234, 125, 70, 5, 99, TIMESTAMP '2004-07-28 21:53:41', 4825.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (235, 221, 5, 2, 30, TIMESTAMP '2024-06-08 09:05:48', 7659.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (236, 141, 5, 1, 1, TIMESTAMP '2007-01-11 02:32:00', 7680.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (237, 121, 37, 6, 10, TIMESTAMP '2013-10-11 18:33:09', 6364.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (238, 221, 21, 4, 39, TIMESTAMP '2009-05-20 11:25:20', 7099.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (239, 93, 68, 7, 79, TIMESTAMP '2007-05-23 01:58:48', 8551.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (240, 15, 71, 9, 34, TIMESTAMP '2017-05-02 15:59:19', 6034.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (241, 58, 18, 9, 5, TIMESTAMP '2011-05-17 16:25:26', 5238.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (242, 50, 69, 12, 52, TIMESTAMP '2019-08-16 02:11:50', 5571.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (243, 95, 32, 9, 70, TIMESTAMP '2003-05-25 08:55:48', 5743.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (244, 168, 43, 1, 46, TIMESTAMP '2007-11-14 01:46:58', 7104.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (245, 200, 15, 1, 70, TIMESTAMP '2025-07-27 19:13:31', 7548.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (246, 169, 15, 12, 57, TIMESTAMP '2008-06-23 16:39:50', 6976.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (247, 192, 14, 7, 24, TIMESTAMP '2000-12-26 18:00:23', 7170.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (248, 151, 44, 3, 26, TIMESTAMP '2011-08-08 21:37:18', 7202.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (249, 182, 54, 7, 8, TIMESTAMP '2000-10-05 11:27:12', 7373.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (250, 79, 52, 9, 32, TIMESTAMP '2008-10-16 15:29:08', 7163.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (251, 10, 56, 5, 81, TIMESTAMP '2006-03-10 10:32:09', 8285.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (252, 122, 15, 4, 12, TIMESTAMP '2017-05-07 04:11:32', 5706.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (253, 151, 69, 3, 22, TIMESTAMP '2003-07-14 23:08:07', 7155.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (254, 124, 54, 6, 76, TIMESTAMP '2013-10-26 13:16:53', 5918.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (255, 162, 27, 9, 13, TIMESTAMP '2003-12-08 21:55:58', 5237.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (256, 177, 4, 11, 25, TIMESTAMP '2013-04-07 08:16:29', 5731.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (257, 23, 61, 12, 15, TIMESTAMP '2006-01-15 02:36:21', 7866.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (258, 7, 25, 6, 29, TIMESTAMP '2002-08-08 21:10:28', 7477.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (259, 157, 45, 5, 48, TIMESTAMP '2013-07-22 01:58:10', 8822.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (260, 194, 30, 4, 81, TIMESTAMP '2021-01-24 02:28:47', 7181.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (261, 23, 6, 7, 95, TIMESTAMP '2014-02-13 06:38:31', 5531.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (262, 207, 19, 7, 89, TIMESTAMP '2016-12-03 00:37:53', 4710.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (263, 129, 6, 2, 36, TIMESTAMP '2001-09-04 07:57:13', 7118.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (264, 240, 66, 4, 98, TIMESTAMP '2014-04-13 19:16:23', 7640.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (265, 75, 46, 7, 3, TIMESTAMP '2008-04-12 00:15:55', 5927.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (266, 197, 11, 1, 53, TIMESTAMP '2006-04-13 16:08:24', 7513.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (267, 148, 67, 9, 17, TIMESTAMP '2007-09-18 18:02:43', 6916.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (268, 141, 30, 12, 49, TIMESTAMP '2006-03-22 20:41:23', 8714.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (269, 45, 37, 9, 59, TIMESTAMP '2001-09-21 16:25:58', 7763.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (270, 55, 45, 9, 92, TIMESTAMP '2021-06-12 16:12:50', 7672.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (271, 46, 10, 12, 40, TIMESTAMP '2006-07-14 01:43:03', 6133.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (272, 60, 45, 10, 85, TIMESTAMP '2009-01-01 11:49:22', 8280.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (273, 229, 67, 9, 74, TIMESTAMP '2019-09-27 14:56:08', 6275.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (274, 181, 50, 11, 86, TIMESTAMP '2025-03-05 09:13:16', 8519.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (275, 132, 47, 4, 72, TIMESTAMP '2024-11-29 17:14:55', 6158.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (276, 181, 55, 4, 10, TIMESTAMP '2010-04-07 00:46:09', 7868.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (277, 151, 34, 1, 95, TIMESTAMP '2021-01-23 23:32:25', 7800.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (278, 182, 18, 5, 94, TIMESTAMP '2011-10-19 17:59:32', 7984.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (279, 40, 53, 11, 39, TIMESTAMP '2009-09-04 21:39:00', 7305.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (280, 144, 6, 10, 50, TIMESTAMP '2011-02-10 06:01:00', 9490.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (281, 118, 61, 2, 41, TIMESTAMP '2016-08-28 03:30:32', 6481.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (282, 81, 66, 4, 16, TIMESTAMP '2020-05-20 02:06:09', 5740.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (283, 21, 4, 11, 26, TIMESTAMP '2006-01-08 12:47:15', 7594.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (284, 181, 50, 3, 33, TIMESTAMP '2000-03-08 08:47:08', 6295.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (285, 2, 49, 10, 54, TIMESTAMP '2002-02-21 02:35:17', 8699.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (286, 238, 20, 11, 95, TIMESTAMP '2005-05-16 06:55:08', 8428.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (287, 145, 29, 12, 73, TIMESTAMP '2002-06-10 06:14:15', 6890.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (288, 129, 39, 8, 7, TIMESTAMP '2011-10-13 18:16:38', 5835.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (289, 151, 52, 5, 40, TIMESTAMP '2005-01-31 11:28:44', 8152.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (290, 53, 19, 4, 13, TIMESTAMP '2017-05-03 19:38:27', 7520.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (291, 147, 45, 1, 99, TIMESTAMP '2011-03-23 20:33:03', 7499.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (292, 23, 2, 2, 75, TIMESTAMP '2007-04-21 02:02:48', 5010.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (293, 157, 71, 5, 4, TIMESTAMP '2023-10-22 08:25:22', 6424.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (294, 188, 24, 5, 14, TIMESTAMP '2009-02-25 17:20:58', 6758.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (295, 164, 8, 6, 38, TIMESTAMP '2000-08-12 23:26:41', 4837.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (296, 212, 12, 9, 86, TIMESTAMP '2021-03-26 19:01:36', 7560.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (297, 105, 54, 7, 38, TIMESTAMP '2008-04-22 02:32:54', 8720.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (298, 198, 10, 4, 29, TIMESTAMP '2000-06-18 01:13:03', 5465.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (299, 163, 3, 9, 28, TIMESTAMP '2025-11-14 06:44:36', 6478.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (300, 166, 17, 7, 39, TIMESTAMP '2013-07-11 01:35:32', 6461.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (301, 128, 24, 6, 8, TIMESTAMP '2009-11-17 19:26:59', 7811.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (302, 237, 1, 2, 22, TIMESTAMP '2001-12-06 06:28:01', 7396.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (303, 159, 12, 7, 68, TIMESTAMP '2010-11-09 16:56:16', 8706.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (304, 225, 71, 8, 25, TIMESTAMP '2001-05-13 10:26:28', 7772.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (305, 24, 18, 4, 71, TIMESTAMP '2016-10-01 05:45:26', 9257.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (306, 114, 60, 7, 62, TIMESTAMP '2009-11-23 20:34:46', 7947.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (307, 26, 18, 9, 90, TIMESTAMP '2015-07-01 15:03:28', 8807.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (308, 116, 9, 9, 10, TIMESTAMP '2013-04-04 03:21:51', 6179.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (309, 143, 15, 12, 41, TIMESTAMP '2002-04-22 08:18:01', 8558.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (310, 37, 39, 1, 2, TIMESTAMP '2014-08-21 06:12:10', 5403.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (311, 220, 43, 3, 40, TIMESTAMP '2004-04-29 04:22:47', 8098.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (312, 170, 11, 10, 6, TIMESTAMP '2018-03-18 02:45:30', 7614.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (313, 233, 22, 1, 64, TIMESTAMP '2000-12-02 22:31:14', 6480.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (314, 138, 70, 4, 35, TIMESTAMP '2003-11-28 22:28:54', 8130.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (315, 56, 53, 4, 71, TIMESTAMP '2002-12-06 17:22:00', 6754.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (316, 127, 9, 6, 71, TIMESTAMP '2007-12-06 14:46:43', 5547.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (317, 98, 7, 9, 1, TIMESTAMP '2021-05-23 17:29:35', 5473.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (318, 150, 28, 2, 44, TIMESTAMP '2024-12-05 16:00:45', 4300.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (319, 117, 3, 12, 35, TIMESTAMP '2024-03-18 10:04:01', 8552.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (320, 120, 42, 9, 42, TIMESTAMP '2019-12-30 06:44:09', 6398.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (321, 202, 62, 3, 59, TIMESTAMP '2004-01-31 11:21:00', 5240.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (322, 151, 38, 12, 60, TIMESTAMP '2020-02-01 06:19:45', 8202.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (323, 10, 28, 12, 43, TIMESTAMP '2010-06-16 17:41:43', 8119.0000);
+INSERT INTO UsersGames (id, game_id, user_id, character_id, level, joined_on, cash) OVERRIDING SYSTEM VALUE VALUES (324, 122, 9, 1, 16, TIMESTAMP '2011-04-17 23:07:47', 5832.0000);
 ALTER TABLE Games ALTER COLUMN is_finished SET DEFAULT 0;
 ALTER TABLE Users ALTER COLUMN is_deleted SET DEFAULT 0;
 ALTER TABLE UsersGames ALTER COLUMN cash SET DEFAULT 1000;
@@ -4100,3 +4095,5 @@ ADD CONSTRAINT CK_UsersGames CHECK (cash > 0::money);
 
 ALTER TABLE UsersGames
 VALIDATE CONSTRAINT CK_UsersGames;
+
+
